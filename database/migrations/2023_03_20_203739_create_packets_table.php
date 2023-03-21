@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
 
-            $table->unsignedBigInteger('subject_id');
-            $table->foreign('subject_id')
+            $table->unsignedBigInteger('exam_paper');
+            $table->foreign('exam_paper')
                 ->references('id')
-                ->on('subjects')
+                ->on('exam_papers')
             ;
 
 // area of possible error

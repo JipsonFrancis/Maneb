@@ -160,31 +160,31 @@ class DatabaseSeeder extends Seeder
 
         $pack_1 = Packet::create([
             'name' => fake()->unique()->name(),
-            'subject_id' => $subject_1->id,
+            'exam_paper' => $papers_1->id,
             'initial_location' => $center->id,
             'destination' => $center->id,
-            'QR' => "QR-". $subject_1->name.'-'.$subject_1->id
+            'QR' => "QR-". $papers_1->name.'-'.$papers_1->id
         ]);
         $pack_2 = Packet::create([
             'name' => fake()->unique()->name(),
-            'subject_id' => $subject_2->id,
+            'exam_paper' => $papers_2->id,
             'initial_location' => $center->id,
             'destination' => $center->id,
-            'QR' => "QR-". $subject_2->name.'-'.$subject_2->id
+            'QR' => "QR-". $papers_2->name.'-'.$papers_2->id
         ]);
         $pack_3 = Packet::create([
             'name' => fake()->unique()->name(),
-            'subject_id' => $subject_3->id,
+            'exam_paper' => $papers_3->id,
             'initial_location' => $center->id,
             'destination' => $center->id,
-            'QR' => "QR-". $subject_3->name.'-'.$subject_3->id
+            'QR' => "QR-". $papers_3->name.'-'.$papers_3->id
         ]);
         $pack_4 = Packet::create([
             'name' => fake()->unique()->name(),
-            'subject_id' => $subject_4->id,
+            'exam_paper' => $papers_4->id,
             'initial_location' => $center->id,
             'destination' => $center->id,
-            'QR' => "QR-". $subject_4->name.'-'.$subject_4->id
+            'QR' => "QR-". $papers_4->name.'-'.$papers_4->id
         ]);
 
         //blackbox
@@ -197,7 +197,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $box_2 = Blackbox::create([
             'name' => fake()->unique()->name(),
-            'packet_id' => $pack_2->id,
+            'packet_id' => $pack_3->id,
             'initial_location' => $center->id,
             'destination' => $center->id,
             'QR' => "QR-". $subject_1->name.'-'.$subject_1->id
@@ -228,7 +228,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $transit_2 = Transit::create([
             'name' => fake()->unique()->name(),
-            'blackbox_id' => $box_1->id,
+            'blackbox_id' => $box_2->id,
             'driver_id' => $user->id,
             'truck_id' => $truck_2->id,
             'initial_location' => $center->id,
@@ -236,7 +236,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $transit_3 = Transit::create([
             'name' => fake()->unique()->name(),
-            'blackbox_id' => $box_1->id,
+            'blackbox_id' => $box_3->id,
             'driver_id' => $user->id,
             'truck_id' => $truck_3->id,
             'initial_location' => $center->id,
