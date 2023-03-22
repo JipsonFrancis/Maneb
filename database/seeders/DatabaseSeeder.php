@@ -114,7 +114,6 @@ class DatabaseSeeder extends Seeder
             }
         }
 // Exam papers
-
         $papers_1 = ExamPaper::create([
             'name' => fake()->unique()->name(),
             'exam_id' => $plsc->id,
@@ -156,13 +155,47 @@ class DatabaseSeeder extends Seeder
             'date' => fake()->date(),
         ]);
 
-        //paper packs
+//blackbox
+        $box_1 = Blackbox::create([
+            'name' => fake()->unique()->name(),
+            // 'packet_id' => $pack_4->id,
+            'initial_location' => $center->id,
+            'current_location' => $center->id,
+            'destination' => $center->id,
+            'QR' => "QR-". $subject_2->name.'-'.$subject_2->id
+        ]);
+        $box_2 = Blackbox::create([
+            'name' => fake()->unique()->name(),
+            // 'packet_id' => $pack_3->id,
+            'initial_location' => $center->id,
+            'current_location' => $center->id,
+            'destination' => $center->id,
+            'QR' => "QR-". $subject_1->name.'-'.$subject_1->id
+        ]);
+        $box_3 = Blackbox::create([
+            'name' => fake()->unique()->name(),
+            // 'packet_id' => $pack_2->id,
+            'initial_location' => $center->id,
+            'current_location' => $center->id,
+            'destination' => $center->id,
+            'QR' => "QR-". $subject_2->name.'-'.$subject_2->id
+        ]);
+        $box_4 = Blackbox::create([
+            'name' => fake()->unique()->name(),
+            // 'packet_id' => $pack_1->id,
+            'initial_location' => $center->id,
+            'current_location' => $center->id,
+            'destination' => $center->id,
+            'QR' => "QR-". $subject_3->name.'-'.$subject_3->id
+        ]);
 
+//paper packs
         $pack_1 = Packet::create([
             'name' => fake()->unique()->name(),
             'exam_paper' => $papers_1->id,
             'initial_location' => $center->id,
             'destination' => $center->id,
+            'blackbox_id' => $box_1->id,
             'QR' => "QR-". $papers_1->name.'-'.$papers_1->id
         ]);
         $pack_2 = Packet::create([
@@ -170,6 +203,7 @@ class DatabaseSeeder extends Seeder
             'exam_paper' => $papers_2->id,
             'initial_location' => $center->id,
             'destination' => $center->id,
+            'blackbox_id' => $box_2->id,
             'QR' => "QR-". $papers_2->name.'-'.$papers_2->id
         ]);
         $pack_3 = Packet::create([
@@ -177,6 +211,7 @@ class DatabaseSeeder extends Seeder
             'exam_paper' => $papers_3->id,
             'initial_location' => $center->id,
             'destination' => $center->id,
+            'blackbox_id' => $box_3->id,
             'QR' => "QR-". $papers_3->name.'-'.$papers_3->id
         ]);
         $pack_4 = Packet::create([
@@ -184,40 +219,43 @@ class DatabaseSeeder extends Seeder
             'exam_paper' => $papers_4->id,
             'initial_location' => $center->id,
             'destination' => $center->id,
+            'blackbox_id' => $box_4->id,
+            'QR' => "QR-". $papers_4->name.'-'.$papers_4->id
+        ]);
+        $pack_5 = Packet::create([
+            'name' => fake()->unique()->name(),
+            'exam_paper' => $papers_1->id,
+            'initial_location' => $center->id,
+            'destination' => $center->id,
+            'blackbox_id' => $box_1->id,
+            'QR' => "QR-". $papers_1->name.'-'.$papers_1->id
+        ]);
+        $pack_6 = Packet::create([
+            'name' => fake()->unique()->name(),
+            'exam_paper' => $papers_2->id,
+            'initial_location' => $center->id,
+            'destination' => $center->id,
+            'blackbox_id' => $box_2->id,
+            'QR' => "QR-". $papers_2->name.'-'.$papers_2->id
+        ]);
+        $pack_7 = Packet::create([
+            'name' => fake()->unique()->name(),
+            'exam_paper' => $papers_3->id,
+            'initial_location' => $center->id,
+            'destination' => $center->id,
+            'blackbox_id' => $box_3->id,
+            'QR' => "QR-". $papers_3->name.'-'.$papers_3->id
+        ]);
+        $pack_8 = Packet::create([
+            'name' => fake()->unique()->name(),
+            'exam_paper' => $papers_4->id,
+            'initial_location' => $center->id,
+            'destination' => $center->id,
+            'blackbox_id' => $box_4->id,
             'QR' => "QR-". $papers_4->name.'-'.$papers_4->id
         ]);
 
-        //blackbox
-        $box_1 = Blackbox::create([
-            'name' => fake()->unique()->name(),
-            'packet_id' => $pack_4->id,
-            'initial_location' => $center->id,
-            'destination' => $center->id,
-            'QR' => "QR-". $subject_2->name.'-'.$subject_2->id
-        ]);
-        $box_2 = Blackbox::create([
-            'name' => fake()->unique()->name(),
-            'packet_id' => $pack_3->id,
-            'initial_location' => $center->id,
-            'destination' => $center->id,
-            'QR' => "QR-". $subject_1->name.'-'.$subject_1->id
-        ]);
-        $box_3 = Blackbox::create([
-            'name' => fake()->unique()->name(),
-            'packet_id' => $pack_2->id,
-            'initial_location' => $center->id,
-            'destination' => $center->id,
-            'QR' => "QR-". $subject_2->name.'-'.$subject_2->id
-        ]);
-        $box_4 = Blackbox::create([
-            'name' => fake()->unique()->name(),
-            'packet_id' => $pack_1->id,
-            'initial_location' => $center->id,
-            'destination' => $center->id,
-            'QR' => "QR-". $subject_3->name.'-'.$subject_3->id
-        ]);
-
-        // Transit
+// Transit
         $transit_1 = Transit::create([
             'name' => fake()->unique()->name(),
             'blackbox_id' => $box_1->id,
@@ -243,7 +281,7 @@ class DatabaseSeeder extends Seeder
             'destination' => $center->id,
         ]);
 
-        // checkpoint
+// checkpoint
         $point_1 = Checkpoint::create([
             'name' => fake()->unique()->country(),
             'invigilator' => $user->id,

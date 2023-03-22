@@ -18,15 +18,16 @@ return new class extends Migration
             // QR-CODES WLLL FORMED USING THE SITE DOMAIN + SUBJECT_ID + CENTER_ID + ID https://www.example.com/1/2/3/4
             $table->string('QR');
 
-            $table->unsignedBigInteger('packet_id');
-            $table->foreign('packet_id')
-                ->references('id')
-                ->on('packets')
-            ;
-
 // area of possible error
             $table->unsignedBigInteger('initial_location');
             $table->foreign('initial_location')
+                ->references('id')
+                ->on('centers')
+            ;
+
+// area of possible error
+            $table->unsignedBigInteger('current_location');
+            $table->foreign('current_location')
                 ->references('id')
                 ->on('centers')
             ;

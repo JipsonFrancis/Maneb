@@ -36,6 +36,12 @@ return new class extends Migration
                 ->on('centers')
             ;
 
+            $table->unsignedBigInteger('blackbox_id')->default(0);
+            $table->foreign( 'blackbox_id')
+                ->references('id')
+                ->on('blackboxes')
+            ;
+
 // QR-CODES WLLL FORMED USING THE SITE DOMAIN + SUBJECT_ID + CENTER_ID + ID https://www.example.com/1/2/3/4
             $table->string('QR');
             $table->timestamps();
