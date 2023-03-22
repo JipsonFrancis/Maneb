@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Truck extends Model
 {
@@ -12,4 +14,10 @@ class Truck extends Model
     protected $fillable = [
         'licence',
     ];
+
+// Eloquent Relationships
+    public function transit(): HasOne
+    {
+        return $this->hasOne(Transit::class);
+    }
 }

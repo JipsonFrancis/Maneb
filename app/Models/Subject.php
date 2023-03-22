@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Subject extends Model
 {
@@ -12,4 +13,10 @@ class Subject extends Model
     protected $fillable = [
         'name',
     ];
+
+    //Eloquent Relationship
+    public function papers(): HasMany
+    {
+        return $this->hasMany(ExamPaper::class);
+    }
 }
