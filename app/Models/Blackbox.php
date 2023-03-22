@@ -11,7 +11,7 @@ class Blackbox extends Model
 
     protected $fillable = [
         'name',
-        'packet_id',
+        'transit_id',
         'initial_location',
         'destination',
         'QR'

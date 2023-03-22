@@ -19,6 +19,13 @@ return new class extends Migration
             $table->string('QR');
 
 // area of possible error
+            $table->unsignedBigInteger('transit_id')->default(0);
+            $table->foreign('transit_id')
+                ->references('id')
+                ->on('transits')
+            ;
+
+// area of possible error
             $table->unsignedBigInteger('initial_location');
             $table->foreign('initial_location')
                 ->references('id')

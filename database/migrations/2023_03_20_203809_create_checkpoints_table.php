@@ -22,10 +22,16 @@ return new class extends Migration
                 ->on('users')
             ;
 
-            $table->unsignedBigInteger('center_id');
-            $table->foreign('center_id')
+            $table->unsignedBigInteger('transit_id');
+            $table->foreign('transit_id')
                 ->references('id')
-                ->on('centers')
+                ->on('transits')
+            ;
+
+            $table->unsignedBigInteger('box')->default(0);
+            $table->foreign('box')
+                ->references('id')
+                ->on('blackboxes')
             ;
 
             $table->timestamps();

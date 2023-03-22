@@ -155,10 +155,37 @@ class DatabaseSeeder extends Seeder
             'date' => fake()->date(),
         ]);
 
+// Transit
+        $transit_1 = Transit::create([
+            'name' => fake()->unique()->name(),
+            // 'blackbox_id' => $box_1->id,
+            'driver_id' => $user->id,
+            'truck_id' => $truck_1->id,
+            'initial_location' => $center->id,
+            'destination' => $center->id,
+        ]);
+        $transit_2 = Transit::create([
+            'name' => fake()->unique()->name(),
+            // 'blackbox_id' => $box_2->id,
+            'driver_id' => $user->id,
+            'truck_id' => $truck_2->id,
+            'initial_location' => $center->id,
+            'destination' => $center->id,
+        ]);
+        $transit_3 = Transit::create([
+            'name' => fake()->unique()->name(),
+            // 'blackbox_id' => $box_3->id,
+            'driver_id' => $user->id,
+            'truck_id' => $truck_3->id,
+            'initial_location' => $center->id,
+            'destination' => $center->id,
+        ]);
+
+
 //blackbox
         $box_1 = Blackbox::create([
             'name' => fake()->unique()->name(),
-            // 'packet_id' => $pack_4->id,
+            'transit_id' => $transit_1->id,
             'initial_location' => $center->id,
             'current_location' => $center->id,
             'destination' => $center->id,
@@ -166,7 +193,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $box_2 = Blackbox::create([
             'name' => fake()->unique()->name(),
-            // 'packet_id' => $pack_3->id,
+            'transit_id' => $transit_2->id,
             'initial_location' => $center->id,
             'current_location' => $center->id,
             'destination' => $center->id,
@@ -174,7 +201,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $box_3 = Blackbox::create([
             'name' => fake()->unique()->name(),
-            // 'packet_id' => $pack_2->id,
+            'transit_id' => $transit_3->id,
             'initial_location' => $center->id,
             'current_location' => $center->id,
             'destination' => $center->id,
@@ -182,7 +209,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $box_4 = Blackbox::create([
             'name' => fake()->unique()->name(),
-            // 'packet_id' => $pack_1->id,
+            'transit_id' => $transit_1->id,
             'initial_location' => $center->id,
             'current_location' => $center->id,
             'destination' => $center->id,
@@ -255,47 +282,30 @@ class DatabaseSeeder extends Seeder
             'QR' => "QR-". $papers_4->name.'-'.$papers_4->id
         ]);
 
-// Transit
-        $transit_1 = Transit::create([
-            'name' => fake()->unique()->name(),
-            'blackbox_id' => $box_1->id,
-            'driver_id' => $user->id,
-            'truck_id' => $truck_1->id,
-            'initial_location' => $center->id,
-            'destination' => $center->id,
-        ]);
-        $transit_2 = Transit::create([
-            'name' => fake()->unique()->name(),
-            'blackbox_id' => $box_2->id,
-            'driver_id' => $user->id,
-            'truck_id' => $truck_2->id,
-            'initial_location' => $center->id,
-            'destination' => $center->id,
-        ]);
-        $transit_3 = Transit::create([
-            'name' => fake()->unique()->name(),
-            'blackbox_id' => $box_3->id,
-            'driver_id' => $user->id,
-            'truck_id' => $truck_3->id,
-            'initial_location' => $center->id,
-            'destination' => $center->id,
-        ]);
-
 // checkpoint
         $point_1 = Checkpoint::create([
             'name' => fake()->unique()->country(),
+            'transit_id' => $transit_1->id,
             'invigilator' => $user->id,
-            'center_id' => $center->id
+            'box' => $box_1->id
         ]);
         $point_2 = Checkpoint::create([
             'name' => fake()->unique()->country(),
+            'transit_id' => $transit_2->id,
             'invigilator' => $user->id,
-            'center_id' => $center->id
+            'box' => $box_2->id
         ]);
         $point_3 = Checkpoint::create([
             'name' => fake()->unique()->country(),
+            'transit_id' => $transit_3->id,
             'invigilator' => $user->id,
-            'center_id' => $center->id
+            'box' => $box_4->id
+        ]);
+        $point_4 = Checkpoint::create([
+            'name' => fake()->unique()->country(),
+            'transit_id' => $transit_1->id,
+            'invigilator' => $user->id,
+            'box' => $box_3->id
         ]);
 
     }

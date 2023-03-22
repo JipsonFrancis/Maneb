@@ -16,13 +16,6 @@ return new class extends Migration
             $table->string('name');
 
 // area of possible error
-            $table->unsignedBigInteger('blackbox_id');
-            $table->foreign('blackbox_id',)
-                ->references('id')
-                ->on('blackboxes')
-            ;
-
-// area of possible error
             $table->unsignedBigInteger('driver_id');
             $table->foreign('driver_id')
                 ->references('id')
