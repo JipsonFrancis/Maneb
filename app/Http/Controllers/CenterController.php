@@ -12,7 +12,7 @@ class CenterController extends Controller
      */
     public function index()
     {
-        //
+        return view('Center.centers', ['centers' => Center::all()]);
     }
 
     /**

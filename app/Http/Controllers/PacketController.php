@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Packet;
 use Illuminate\Http\Request;
 
 class PacketController extends Controller
@@ -11,7 +12,7 @@ class PacketController extends Controller
      */
     public function index()
     {
-        //
+        return view('Packet.packet', ['packets' => Packet::all()]);
     }
 
     /**

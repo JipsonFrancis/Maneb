@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blackbox;
 use Illuminate\Http\Request;
 
 class BlackboxController extends Controller
@@ -11,7 +12,7 @@ class BlackboxController extends Controller
      */
     public function index()
     {
-        //
+        return view('Boxes.boxes', ['boxes' => Blackbox::all()]);
     }
 
     /**

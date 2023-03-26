@@ -39,6 +39,19 @@ Route::get('/', function () {
     dd(Blackbox::first()->packs );
 });
 
+// Add middleware to the routes for security
+Route::get('boxes',[BlackboxController::class, 'index']);
+Route::get('centers',[CenterController::class, 'index']);
+Route::get('checkpoints',[CheckpointController::class, 'index']);
+Route::get('exams',[ExamController::class, 'index']);
+Route::get('exampapers',[ExamPaperController::class, 'index']);
+Route::get('packets',[PacketController::class, 'index']);
+Route::get('roles',[RoleController::class, 'index']);
+Route::get('subjects',[SubjectController::class, 'index']);
+Route::get('transits',[TransitController::class, 'index']);
+Route::get('trucks',[TruckController::class, 'index']);
+
+// CRUD 
 Route::resources([
     'blackboxes' => BlackboxController::class,
     'centers' => CenterController::class,

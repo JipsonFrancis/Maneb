@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Checkpoint;
 use Illuminate\Http\Request;
 
 class CheckpointController extends Controller
@@ -11,7 +12,7 @@ class CheckpointController extends Controller
      */
     public function index()
     {
-        //
+        return view('Checkpoint.checkpoint', ['checkpoints' => Checkpoint::all()]);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exam;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
@@ -11,7 +12,7 @@ class ExamController extends Controller
      */
     public function index()
     {
-        //
+        return view('Exam.exam', ['exams' => Exam::all()]);
     }
 
     /**

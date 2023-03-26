@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Truck;
 use Illuminate\Http\Request;
 
 class TruckController extends Controller
@@ -11,7 +12,7 @@ class TruckController extends Controller
      */
     public function index()
     {
-        //
+        return view('Truck.truck', ['trucks' => Truck::all()]);
     }
 
     /**

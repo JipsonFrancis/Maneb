@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transit;
 use Illuminate\Http\Request;
 
 class TransitController extends Controller
@@ -11,7 +12,7 @@ class TransitController extends Controller
      */
     public function index()
     {
-        //
+        return view('Transit.transit', ['transits' => Transit::all()]);
     }
 
     /**

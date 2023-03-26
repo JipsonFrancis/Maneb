@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ExamPaper;
 use Illuminate\Http\Request;
 
 class ExamPaperController extends Controller
@@ -11,7 +12,7 @@ class ExamPaperController extends Controller
      */
     public function index()
     {
-        //
+        return view('ExamPaper.exampaper', ['exampapers' => ExamPaper::all()]);
     }
 
     /**
