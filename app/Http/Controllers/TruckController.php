@@ -28,7 +28,12 @@ class TruckController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a truck and store it in the db
+        $truck = Truck::create([
+            'licence' => $request->licence,
+        ]);
+
+        return back()->with('success', $truck->name.' truck has been created.');
     }
 
     /**

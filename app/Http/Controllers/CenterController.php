@@ -28,7 +28,16 @@ class CenterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a center and store it in the db
+        $center = Center::create([
+            'name' => $request->name,
+            'invigilator' => $request->invigilator,
+            'type' => $request->type,
+            'longitude' => $request->longitude,
+            'latitude' => $request->latitude
+        ]);
+
+        return back()->with('success', $center->name.' center has been created.');
     }
 
     /**

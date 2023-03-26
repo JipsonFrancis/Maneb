@@ -28,7 +28,12 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a subject$subject and store it in the db
+        $subject = Subject::create([
+            'name' => $request->name,
+        ]);
+
+        return back()->with('success', $subject->name.' subject$subject has been created.');
     }
 
     /**

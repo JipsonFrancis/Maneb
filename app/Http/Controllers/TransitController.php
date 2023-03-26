@@ -28,7 +28,16 @@ class TransitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a transit and store it in the db
+        $transit = Transit::create([
+            'name' => $request->name,
+            'driver_id' => $request->driver_id,
+            'truck_id' => $request->truck_id,
+            'initial_location' => $request->initial_location,
+            'destination' => $request->destination
+        ]);
+
+        return back()->with('success', $transit->name.' transit has been created.');
     }
 
     /**

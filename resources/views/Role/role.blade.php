@@ -10,12 +10,8 @@
     <h2 style="float:right; background-color:#4D4DFF; margin-left:2px"> 
         <form method="POST" action="{{ route('roles.store') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="name" value="Cement">
-            <input type="hidden" name="category_id" value="2">
-            <input type="hidden" name="warehouse_id" value="1">
-            <input type="hidden" name="price" value="25000">
-            <input type="hidden" name="quantity" value="25">
-            <button type="submit">Commodity</button>
+            <input type="hidden" name="name" value="Foreman">
+            <button type="submit">Role</button>
         </form>
     </h2>
 
@@ -25,13 +21,6 @@
             <a style="float:right">Detail</a>
             <div>
                 <h4><b>{{$role->name}}</b></h4>
-                <p>Category:{{$role->name}}</p>
-                <p>price:{{$role->name}}</p>
-                @if ( $role->name != 0 )
-                    <p style="color:green">quantity:{{$role->name}}</p>
-                @else
-                    <p style="color:red">quantity:Out Stock</p>
-                @endif
                 <div>
                     <ol>
                         <li>

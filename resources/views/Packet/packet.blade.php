@@ -10,12 +10,13 @@
     <h2 style="float:right; background-color:#4D4DFF; margin-left:2px"> 
         <form method="POST" action="{{ route('packets.store') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="name" value="Cement">
-            <input type="hidden" name="category_id" value="2">
-            <input type="hidden" name="warehouse_id" value="1">
-            <input type="hidden" name="price" value="25000">
-            <input type="hidden" name="quantity" value="25">
-            <button type="submit">Commodity</button>
+            <input type="hidden" name="name" value="Mathematics II collection">
+            <input type="hidden" name="exam_paper" value="2">
+            <input type="hidden" name="blackbox_id" value="1">
+            <input type="hidden" name="QR" value="example/com/4/5">
+            <input type="hidden" name="initial_location" value="25">
+            <input type="hidden" name="destination" value="15">
+            <button type="submit">Packet</button>
         </form>
     </h2>
 
@@ -25,12 +26,14 @@
             <a style="float:right">Detail</a>
             <div>
                 <h4><b>{{$packet->name}}</b></h4>
-                <p>Category:{{$packet->name}}</p>
-                <p>price:{{$packet->name}}</p>
-                @if ( $packet->name != 0 )
-                    <p style="color:green">quantity:{{$packet->name}}</p>
+                <p>QR:{{$packet->QR}}</p>
+                <p>Paper:{{$packet->paper->name}}</p>
+                <p>From:{{$packet->origin->name}}</p>
+                <p>To:{{$packet->endLocation->name}}</p>
+                @if ( $packet->box )
+                    <p style="color:green">Box:{{$packet->box->name}}</p>
                 @else
-                    <p style="color:red">quantity:Out Stock</p>
+                    <p style="color:red">not Shipped</p>
                 @endif
                 <div>
                     <ol>

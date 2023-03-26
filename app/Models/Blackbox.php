@@ -46,5 +46,10 @@ class Blackbox extends Model
         return $this->belongsTo(Transit::class);
     }
 
+    public function checkpoint(): HasMany
+    {
+        return $this->hasMany(Checkpoint::class);
+    }
+
 
 }

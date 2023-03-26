@@ -13,6 +13,7 @@ class Truck extends Model
 
     protected $fillable = [
         'licence',
+        //'occupied'
     ];
 
 // Eloquent Relationships

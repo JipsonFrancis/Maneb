@@ -11,11 +11,8 @@
         <form method="POST" action="{{ route('exams.store') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="name" value="Cement">
-            <input type="hidden" name="category_id" value="2">
-            <input type="hidden" name="warehouse_id" value="1">
-            <input type="hidden" name="price" value="25000">
-            <input type="hidden" name="quantity" value="25">
-            <button type="submit">Commodity</button>
+            <input type="hidden" name="year" value="">
+            <button type="submit">Exam</button>
         </form>
     </h2>
 
@@ -25,13 +22,7 @@
             <a style="float:right">Detail</a>
             <div>
                 <h4><b>{{$exam->name}}</b></h4>
-                <p>Category:{{$exam->name}}</p>
-                <p>price:{{$exam->name}}</p>
-                @if ( $exam->quantity != 0 )
-                    <p style="color:green">quantity:{{$exam->name}}</p>
-                @else
-                    <p style="color:red">quantity:Out Stock</p>
-                @endif
+                <p>year:{{$exam->year}}</p>
                 <div>
                     <ol>
 

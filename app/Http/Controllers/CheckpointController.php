@@ -28,7 +28,15 @@ class CheckpointController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a checkpoint and store it in the db
+        $checkpoint = Checkpoint::create([
+            'name' => $request->name,
+            'invigilator' => $request->invigilator,
+            'transit_id' => $request->transit_id,
+            'box' => $request->box
+        ]);
+
+        return back()->with('success', $checkpoint->name.' checkpoint has been created.');
     }
 
     /**

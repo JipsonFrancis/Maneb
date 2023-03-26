@@ -81,13 +81,16 @@ class DatabaseSeeder extends Seeder
 
 // trucks
         $truck_1 = Truck::create([
-            'licence' => fake()->e164PhoneNumber()
+            'licence' => fake()->e164PhoneNumber(),
+            //'occupied' => 0,
         ]);
         $truck_2 = Truck::create([
-            'licence' => fake()->e164PhoneNumber()
+            'licence' => fake()->e164PhoneNumber(),
+            //'occupied' => 0,
         ]);
         $truck_3 = Truck::create([
-            'licence' => fake()->e164PhoneNumber()
+            'licence' => fake()->e164PhoneNumber(),
+            //'occupied' => 0,
         ]);
 
 // User and Center
@@ -287,25 +290,29 @@ class DatabaseSeeder extends Seeder
             'name' => fake()->unique()->country(),
             'transit_id' => $transit_1->id,
             'invigilator' => $user->id,
-            'box' => $box_1->id
+            'box' => $box_1->id,
+            //'location' => $center->id
         ]);
         $point_2 = Checkpoint::create([
             'name' => fake()->unique()->country(),
             'transit_id' => $transit_2->id,
             'invigilator' => $user->id,
-            'box' => $box_2->id
+            'box' => $box_2->id,
+            //'location' => $center->id
         ]);
         $point_3 = Checkpoint::create([
             'name' => fake()->unique()->country(),
             'transit_id' => $transit_3->id,
             'invigilator' => $user->id,
-            'box' => $box_4->id
+            'box' => $box_4->id,
+            //'location' => $center->id
         ]);
         $point_4 = Checkpoint::create([
             'name' => fake()->unique()->country(),
             'transit_id' => $transit_1->id,
             'invigilator' => $user->id,
-            'box' => $box_3->id
+            'box' => $box_3->id,
+            //'location' => $center->id
         ]);
 
     }

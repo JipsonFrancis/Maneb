@@ -34,5 +34,10 @@ class Center extends Model
     {
         return $this->hasOne(User::class, 'id','invigilator');
     }
+    
+    public function checkpoints(): HasMany 
+    {
+        return $this->hasMany(Checkpoint::class);
+    }
 
 }

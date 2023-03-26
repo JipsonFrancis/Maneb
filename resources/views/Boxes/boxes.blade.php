@@ -4,18 +4,18 @@
 @section('title', 'Management')
 @section('content')
 
-
 <body style="height:100vh">
 
     <h2 style="float:right; background-color:#4D4DFF; margin-left:2px"> 
         <form method="POST" action="{{ route('blackboxes.store') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="name" value="Cement">
-            <input type="hidden" name="category_id" value="2">
-            <input type="hidden" name="warehouse_id" value="1">
-            <input type="hidden" name="price" value="25000">
-            <input type="hidden" name="quantity" value="25">
-            <button type="submit">Commodity</button>
+            <input type="hidden" name="name" value="Likuni">
+            <input type="hidden" name="QR" value="/example.com/2/5">
+            <input type="hidden" name="transit_id" value="1">
+            <input type="hidden" name="initial_location" value="10">
+            <input type="hidden" name="current_location" value="15">
+            <input type="hidden" name="destination" value="25">
+            <button type="submit">Box</button>
         </form>
     </h2>
 
@@ -25,12 +25,11 @@
             <a style="float:right">Detail</a>
             <div>
                 <h4><b>{{$box->name}}</b></h4>
-                <p>Category:{{$box->name}}</p>
-                <p>price:{{$box->price}}</p>
-                @if ( $box->quantity != 0 )
-                    <p style="color:green">quantity:{{$box->name}}</p>
+                <p>QR:{{$box->QR}}</p>
+                @if ( $box->transit)
+                    <p style="color:green">Transit:{{$box->transit->name}}</p>
                 @else
-                    <p style="color:red">quantity:Out Stock</p>
+                    <p style="color:red">Box is not moving</p>
                 @endif
                 <div>
                     <ol>
@@ -56,8 +55,6 @@
             </div>
         </div>
     @endforeach
-
-
 
     @section('footerScripts')
         @parent

@@ -28,7 +28,17 @@ class PacketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a packet and store it in the db
+        $packet = Packet::create([
+            'name' => $request->name,
+            'exam_paper' => $request->exam_paper,
+            'blackbox_id' => $request->blackbox_id,
+            'QR' => $request->QR,
+            'initial_location' => $request->initial_location,
+            'destination' => $request->destination
+        ]);
+
+        return back()->with('success', $packet->name.' packet has been created.');
     }
 
     /**

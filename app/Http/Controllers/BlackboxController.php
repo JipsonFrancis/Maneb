@@ -28,7 +28,17 @@ class BlackboxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a box and store it in the db
+        $box = Blackbox::create([
+            'name' => $request->name,
+            'QR' => $request->QR,
+            'transit_id' => $request->transit_id,
+            'initial_location' => $request->initial_location,
+            'current_location' => $request->current_location,
+            'destination' => $request->destination
+        ]);
+
+        return back()->with('success', $box->name.' box has been created.');
     }
 
     /**

@@ -10,12 +10,11 @@
     <h2 style="float:right; background-color:#4D4DFF; margin-left:2px"> 
         <form method="POST" action="{{ route('checkpoints.store') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="name" value="Cement">
-            <input type="hidden" name="category_id" value="2">
-            <input type="hidden" name="warehouse_id" value="1">
-            <input type="hidden" name="price" value="25000">
-            <input type="hidden" name="quantity" value="25">
-            <button type="submit">Commodity</button>
+            <input type="hidden" name="name" value="Place x">
+            <input type="hidden" name="invigilator" value="2">
+            <input type="hidden" name="transit_id" value="10">
+            <input type="hidden" name="box" value="15">
+            <button type="submit">Checkpoint</button>
         </form>
     </h2>
 
@@ -25,13 +24,9 @@
             <a style="float:right">Detail</a>
             <div>
                 <h4><b>{{$checkpoint->name}}</b></h4>
-                <p>Category:{{$checkpoint->name}}</p>
-                <p>price:{{$checkpoint->price}}</p>
-                @if ( $checkpoint->quantity != 0 )
-                    <p style="color:green">quantity:{{$checkpoint->name}}</p>
-                @else
-                    <p style="color:red">quantity:Out Stock</p>
-                @endif
+                <p>invigilator:{{$checkpoint->head->name}}</p>
+                <p>Transit:{{$checkpoint->transit->name}}</p>
+                <p>Box:{{$checkpoint->blackbox->name}}</p>
                 <div>
                     <ol>
 

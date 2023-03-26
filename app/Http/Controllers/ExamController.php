@@ -28,7 +28,13 @@ class ExamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a exam and store it in the db
+        $exam = Exam::create([
+            'name' => $request->name,
+            'year' => $request->year,
+        ]);
+
+        return back()->with('success', $exam->name.' exam has been created.');
     }
 
     /**

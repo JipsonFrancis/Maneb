@@ -46,5 +46,10 @@ class Transit extends Model
     {
         return $this->belongsTo(Truck::class);
     }
+
+    public function checkpoints(): HasMany
+    {
+        return $this->hasMany(Checkpoint::class);
+    }
  
 }

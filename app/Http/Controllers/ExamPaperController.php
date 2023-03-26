@@ -28,7 +28,17 @@ class ExamPaperController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // create a exam and store it in the db
+        $exam = ExamPaper::create([
+            'name' => $request->name,
+            'exam_id' => $request->exam_id,
+            'subject_id' => $request->subject_id,
+            'invigilator' => $request->invigilator,
+            'paper_number' => $request->paper_number,
+            'date' => $request->date
+        ]);
+
+        return back()->with('success', $exam->name.' exam has been created.');
     }
 
     /**

@@ -8,14 +8,15 @@
 <body style="height:100vh">
 
     <h2 style="float:right; background-color:#4D4DFF; margin-left:2px"> 
-        <form method="POST" action="{{ route('exampapers.store') }}">
+    <form method="POST" action="{{ route('exams.store') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="name" value="Cement">
-            <input type="hidden" name="category_id" value="2">
-            <input type="hidden" name="warehouse_id" value="1">
-            <input type="hidden" name="price" value="25000">
-            <input type="hidden" name="quantity" value="25">
-            <button type="submit">Commodity</button>
+            <input type="hidden" name="exam_id" value="2">
+            <input type="hidden" name="subject_id" value="1">
+            <input type="hidden" name="invigilator" value="25">
+            <input type="hidden" name="paper_number" value="2">
+            <input type="hidden" name="date" value="">
+            <button type="submit">Exam Paper</button>
         </form>
     </h2>
 
@@ -25,13 +26,11 @@
             <a style="float:right">Detail</a>
             <div>
                 <h4><b>{{$exampaper->name}}</b></h4>
-                <p>Category:{{$exampaper->name}}</p>
-                <p>price:{{$exampaper->name}}</p>
-                @if ( $exampaper->quantity != 0 )
-                    <p style="color:green">quantity:{{$exampaper->name}}</p>
-                @else
-                    <p style="color:red">quantity:Out Stock</p>
-                @endif
+                <p>Paper:{{$exampaper->exam->name}}</p>
+                <p>Paper Number:{{$exampaper->paper_number}}</p>
+                <p>Subject:{{$exampaper->subject->name}}</p>
+                <p>invigilator:{{$exampaper->head->name}}</p>
+                <p>date:{{$exampaper->date}}</p>
                 <div>
                     <ol>
 

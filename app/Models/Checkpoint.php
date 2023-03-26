@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Checkpoint extends Model
@@ -13,7 +14,9 @@ class Checkpoint extends Model
     protected $fillable = [
         'name',
         'invigilator',
-        'center_id',
+        'transit_id',
+        'box'
+        //location
     ];
 
 // Eloquent Relationships
@@ -22,5 +25,18 @@ class Checkpoint extends Model
         return $this->hasOne(User::class, 'id','invigilator');
     }
 
+    public function center(): BelongsTo 
+    {
+        return $this->belongsTo(Center::class,'id', 'location');
+    }
 
+    public function transit(): BelongsTo
+    {
+        return $this->belongsTo(Transit::class);
+    }
+
+    public function blackbox(): BelongsTo
+    {
+        return $this->belongsTo(Blackbox::class, 'box');
+    }
 }

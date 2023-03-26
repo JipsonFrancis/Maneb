@@ -35,4 +35,9 @@ class ExamPaper extends Model
     {
         return $this->belongsTo(Packet::class, 'id','exam_paper');
     }
+
+    public function head(): HasOne 
+    {
+        return $this->hasOne(User::class, 'id','invigilator');
+    }
 }

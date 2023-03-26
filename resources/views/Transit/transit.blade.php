@@ -10,12 +10,12 @@
     <h2 style="float:right; background-color:#4D4DFF; margin-left:2px"> 
         <form method="POST" action="{{ route('transits.store') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="name" value="Cement">
-            <input type="hidden" name="category_id" value="2">
-            <input type="hidden" name="warehouse_id" value="1">
-            <input type="hidden" name="price" value="25000">
-            <input type="hidden" name="quantity" value="25">
-            <button type="submit">Commodity</button>
+            <input type="hidden" name="name" value="toZomba">
+            <input type="hidden" name="driver_id" value="2">
+            <input type="hidden" name="truck_id" value="1">
+            <input type="hidden" name="initial_location" value="45">
+            <input type="hidden" name="destination" value="2">
+            <button type="submit">Transit</button>
         </form>
     </h2>
 
@@ -25,13 +25,8 @@
             <a style="float:right">Detail</a>
             <div>
                 <h4><b>{{$transit->name}}</b></h4>
-                <p>Category:{{$transit->name}}</p>
-                <p>price:{{$transit->name}}</p>
-                @if ( $transit->name != 0 )
-                    <p style="color:green">quantity:{{$transit->name}}</p>
-                @else
-                    <p style="color:red">quantity:Out Stock</p>
-                @endif
+                <p>Driver:{{$transit->driver->name}}</p>
+                <p>Truck:{{$transit->truck->licence}}</p>
                 <div>
                     <ol>
 
