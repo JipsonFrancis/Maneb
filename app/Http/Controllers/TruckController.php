@@ -65,6 +65,11 @@ class TruckController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //delete a truck
+        $truck = Truck::findOrFail((int)$id);
+
+        $truck->delete();
+
+        return redirect()->back()->with('success', $truck->name.' from been deleted');
     }
 }

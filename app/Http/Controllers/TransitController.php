@@ -69,6 +69,11 @@ class TransitController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //delete a tr$transit
+        $transit = Transit::findOrFail((int)$id);
+
+        $transit->delete();
+
+        return redirect()->back()->with('success', $transit->name.' from been deleted');
     }
 }

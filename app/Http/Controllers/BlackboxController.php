@@ -70,6 +70,11 @@ class BlackboxController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //delete a box
+        $box = Blackbox::findOrFail((int)$id);
+
+        $box->delete();
+
+        return redirect()->back()->with('success', $box->name.' from been deleted');
     }
 }

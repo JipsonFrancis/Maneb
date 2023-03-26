@@ -70,6 +70,11 @@ class PacketController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //delete a packet
+        $packet = Packet::findOrFail((int)$id);
+
+        $packet->delete();
+
+        return redirect()->back()->with('success', $packet->name.' from been deleted');
     }
 }

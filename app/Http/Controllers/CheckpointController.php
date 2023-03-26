@@ -68,6 +68,11 @@ class CheckpointController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //delete a checkpoint
+        $checkpoint = Checkpoint::findOrFail((int)$id);
+
+        $checkpoint->delete();
+
+        return redirect()->back()->with('success', $checkpoint->name.' from been deleted');
     }
 }

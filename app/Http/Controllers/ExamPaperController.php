@@ -70,6 +70,11 @@ class ExamPaperController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //delete a exampaper
+        $exampaper = ExamPaper::findOrFail((int)$id);
+
+        $exampaper->delete();
+
+        return redirect()->back()->with('success', $exampaper->name.' from been deleted');
     }
 }
