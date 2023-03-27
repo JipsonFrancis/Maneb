@@ -77,4 +77,11 @@ class BlackboxController extends Controller
 
         return redirect()->back()->with('success', $box->name.' from been deleted');
     }
+
+    public function qrGenerator(Request $req)
+    {
+        $box = Blackbox::first();
+        $qr = 'http://127.0.0.1:8000/box/'.$box->id;
+        return $qr;
+    }
 }
