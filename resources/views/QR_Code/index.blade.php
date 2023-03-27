@@ -22,9 +22,9 @@
     ></script>
 </head>
 <body>
-    <input id="text" type="text" value="http://127.0.0.1:8000/12/85" style="width:80%"/><br />
-    <div id="qrcode" style="width:60%; height:60%"></div>
+    <!-- <input id="text" type="text" value="http://127.0.0.1:8000/12/85" style="width:80%"/><br /> -->
+    <div id="qrcode"></div>
     
-    <script src="{{asset('js/script.js')}}"></script>
+    <script src="{{asset('js/qrGen.js')}}"></script>
 </body>
 </html>

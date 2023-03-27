@@ -57,6 +57,7 @@ Route::get('trucks',[TruckController::class, 'index']);
 
 //QR Generator
 Route::get('QR/box', [BlackboxController::class, 'qrGenerator']);
+
 // CRUD 
 Route::resources([
     'blackboxes' => BlackboxController::class,
