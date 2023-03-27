@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>MANEB</title>
 </head>
 <body>
-    <div class="navigation-left">
-        <div class="maneb-logo">
-            <img src="../assets/images/maneB.jpg" alt="maneb-logo">
+    <div class="log-incontainer">
+        <div class="company-logo-right">
+            <div class="comp-logo">
+                <img src="../assets/images/maneB.jpg" alt="">
+            </div>
         </div>
-        <div class="login-textbox">
-            <p>log in</p>
-            <p>Welcome, lets track exams.</p>
 
-            <div>
-                <div>
+        <div class="login-admin">
+            <p class="log-in-in-word">Log in</p>
+            <p class="login-text-small">Track exams for securely.</p>
+            <div class="log-in-textbox">
+
+                <div class="input-boxes">
                     <img src="../assets/images/mail.png" alt="">
-                    <input type="text" name="" id="" placeholder="email">
+                    <input type="text" name="username" class="input-user" placeholder="Username">
                 </div>
-                <div>
+                <div class="input-boxes">
                     <img src="../assets/images/padlock.png" alt="">
-                    <input type="text" name="" id="" placeholder="email">
+                    <input type="password" name="password" class="input-user" placeholder="Password">
                 </div>
-                <div>
-                    <input type="button" value="login">
-                    <a href="">Forget password?</a>
-                </div>
+                <p class="forget-password"><a href="#">forgot password?</a></p>
+                <input type="button" value="log in" class="login-btn">
             </div>
         </div>
     </div>
