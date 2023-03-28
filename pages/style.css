@@ -197,13 +197,13 @@ ul, li , a {
 }
 
 .cars-tracked {
-    width: 32%;
+    width: 30%;
     padding: 20px 15px 0 15px;
 }
 
-.search-box p {
-    font-weight: 600;
+.search-box > p {
     padding-bottom: 20px;
+    font-weight: 600;
 }
 
 .search-box-txt {
@@ -223,9 +223,9 @@ ul, li , a {
     background-color: #FFFFFF;
     border: none;
     outline: none;
-    padding: 8px 10px 8px 40px;
+    padding: 10px 10px 10px 40px;
     border-radius: 10px;
-    width: 310px;
+    width: 290px;
 }
 
 .search-container {
@@ -236,10 +236,10 @@ ul, li , a {
     background-color: #FFFFFF;
     border: none;
     outline: none;
-    padding: 8px 8px 8px 8px;
+    padding: 10px 8px 10px 8px;
     border-radius: 10px;
     width: 45px;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .search-btn {
@@ -269,4 +269,108 @@ ul, li , a {
     padding: 15px;
     border-radius: 15px;
     cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.tracked-car :first-child {
+    font-weight: 600;
+}
+
+.tracked-car:hover {
+    background-color: #31699e15;
+}
+
+.status-car {
+    background-color: #6FD0B2;
+    border-radius: 10px;
+    padding: 2px 20px;
+    font-size: 0.6rem;
+}
+
+.map-section {
+    background-color: #FFFFFF;
+    width: 52%;
+    overflow: hidden;
+    padding: 8px 10px 10px 10px;
+}
+
+.map-section {
+    width: 52%;
+    height: 100vh;
+}
+
+.map-section-map {
+    height: 50vh;
+}
+
+.map-section-map iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.details-section {
+    padding-top: 20px;
+    width: 100%;
+}
+
+.details-nav {
+    border-top: 1px solid #0000004a;
+    opacity: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-p {
+    padding-bottom: 10px;
+} 
+
+.nav-btn {
+    outline: none;
+    border: none;
+    padding: 8px 20px;
+    background: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-btn:hover {
+    scale: 1.1;
+}
+
+.nav-btn-activated {
+    border-bottom: 2px solid #316A9E;
+}
+
+.paper-details, .driver-details, .vehicle-details {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 30px 0 30px;
+    height: 100%;
+    width: 100%;
+}
+
+.icon img {
+    width: 120px;
+    margin: 0 80px 0 50px;
+}
+
+.driver-details-hidden {
+    display: none;
+}
+
+.items-list {
+    margin-bottom: 15px;
+}
+
+.items-list p {
+    font-size: 0.8rem;
+}
+
+.item-below {
+    margin-top: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
