@@ -4,49 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>MANEB</title>
 </head>
 <body>
     <div class="full-app-container">
-        <div class="navigation">
+        <div class="navigation-dashboard">
             <div class="img-logo">
                 <img src="../assets/images/maneB.jpg" alt="">
+                <p>MANEB</p>
             </div>
-            <nav class="nav-right">
+            <div class="nav-right">
                 <ul>
-                    <li><a href="#"><img class="icon-link" src="../assets/images/dashboard.png" alt=""> Dashboard</a></li>
+                    <li><a href="#" class="active-nav"><img class="icon-link" src="../assets/images/dashboard.png" alt=""> Dashboard</a></li>
                     <li><a href="#"><img class="icon-link" src="../assets/images/location.png" alt=""> Tracking</a></li>
                     <li><a href="#"><img class="icon-link" src="../assets/images/box.png" alt=""> Box</a></li>
                     <li><a href="#"><img class="icon-link" src="../assets/images/paper.png" alt=""> Papers</a></li>
-                    <li><a href="#"><img class="icon-link" src="../assets/images/paper.png" alt=""> Notifications</a></li>
+                    <li><a href="#"><img class="icon-link" src="../assets/images/notification.png" alt=""> Notifications</a></li>
                     <li><a href="#"><img class="icon-link" src="../assets/images/group.png" alt=""> Users</a></li>
                     <li><a href="#"><img class="icon-link" src="../assets/images/report.png" alt=""> Reports</a></li>
                 </ul>
-            </nav>
+            </div>
 
-            <nav class="nav-bottom">
+            <div class="nav-bottom">
                 <ul>
                     <li><a href="#"><img class="icon-link" src="../assets/images/user.png" alt=""> Admin</a></li>
                     <li><a href="#"><img class="icon-link" src="../assets/images/logout.png" alt=""> Logout</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
 
         <div class="cars-tracked">
             <div class="search-box">
                 <p>Paper Tracking</p>
                 <div class="search-container">
-                    <div class="search-box">
+                    <div class="search-box-txt">
                         <img src="../assets/images/search.png" alt="">
                         <input type="text" name="Search..." class="track-search" placeholder="Search...">
                     </div>
                     <div class="search-btn">
-                        <img src="../assets/images/search.png" alt="">
+                        <img src="../assets/images/filter.png" alt="">
                         <input type="button" value="">
                     </div>
                 </div>
 
-                <div class="cars-tracked">
+                <div class="cars-tracked-inner">
                     <div class="tracked-car">
                         <p class="plate-number">BW2324</p>
                         <p class="status-car">in transit</p>
