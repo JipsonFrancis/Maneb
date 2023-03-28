@@ -173,13 +173,24 @@ ul, li , a {
     margin-right: 10px;
 }
 
+.nav-collection {
+    height: calc(100vh - 115px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-bottom {
+    margin-bottom: 20px;
+}
+
 .nav-right ul li a, .nav-bottom ul li a {
     font-size: 0.8rem;
     color: #000000;
     opacity: 90%;
     display: flex;
     justify-items: center;
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     transition: all ease-in-out 0.2ms;
 }
 
@@ -190,7 +201,6 @@ ul, li , a {
 .active-nav {
     background-color: #31699e44;
 }
-
 
 .nav-bottom {
     justify-items: end;
@@ -377,3 +387,47 @@ ul, li , a {
 
 
 /* notifications page */
+.container-main-area-dashboad {
+    width: 82%;
+    height: 100vh;
+    overflow: hidden;
+    padding: 30px 15px 15px 15px;
+}
+
+.notification-pannel {
+    border-radius: 15px;
+    height: 70px;
+    padding: 0 15px; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.notification-pannel img {
+    width: 30px;
+    object-fit: contain;
+    margin-right: 40px;
+}
+
+.success {
+    background-color: #DCECDD;
+}
+
+.warning {
+    background-color: #ECDCDC;
+}
+
+.caution {
+    background-color: #E4DDBC;
+}
+
+.split-notification {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 55px);
+}
+
+
+
+
