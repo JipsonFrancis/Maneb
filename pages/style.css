@@ -428,6 +428,104 @@ ul, li , a {
     width: calc(100% - 55px);
 }
 
+/* users page */
+.search-container-main {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-bottom: 20px;
+}
 
+/* table css in pages */
+.table-container table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    /* background: ; */
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  table * {
+      position: relative;
+      font-size: 0.8rem;
+  }
+  
+  table thead tr {
+      height: 35px;
+      background: #FFFFFF;
+      border-bottom: 1px solid #0000000e;
+  }
+  
+  table tbody tr {
+      height: 50px;
+      background: #FFFFFF;
+      border-bottom: 1px solid #0000000e;
+      font-size: 0.6rem;
+  }
 
+  table tbody tr:last-child {
+    border-bottom: none;
+  }
+  
+  .column1 {
+      width: 70px;
+      text-align: center;
+    }
+    
+    .column2 {
+      width: 60px;
+      text-align: center;
+    }
+    
+    .column3 {
+      width: 200px;
+      text-align: center;
+    }
+    
+    .column4 {
+      width: 20%;
+      text-align: center;
+    }
+    
+    .column5 {
+      width: 10px;
+      text-align: center;
+    }
+
+    .column6 {
+        width: 40px;
+        text-align: center;
+      }
+  
+    .column5 img {
+      width: 20px;
+      object-fit: contain;
+    }
+  
+    tr .column2 {
+      padding-left: 50px;
+    }
+  
+    .column5 img {
+      cursor: pointer;
+    }
+
+    .qr-picture-column img {
+        width: 40px;
+    }
+
+    .action-column-buttons button img {
+        width: 20px;
+    }
+
+    .action-column-buttons button {
+        background: none;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin: 0 5px;
+    }
 
