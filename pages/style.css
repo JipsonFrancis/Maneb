@@ -559,3 +559,10 @@ ul, li , a {
         margin: 0 5px;
     }
 
+    .column-role p{
+        background-color: #316A9E;
+        color: #ffffff;
+        padding: 5px 0px;
+        border-radius: 4px;
+    }
+
