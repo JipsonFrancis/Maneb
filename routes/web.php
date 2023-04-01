@@ -36,7 +36,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('QR_Code.index');
+    return view('Transit.transit');
+});
+
+Route::get('/notification', function () {
+    return view('Notification.notification');
+});
+
+Route::get('/user', function () {
+    return view('User.users');
+});
+
+Route::get('/login', function () {
+    return view('Login.login');
 });
 
 // Add middleware to the routes for security
@@ -50,9 +62,6 @@ Route::get('roles',[RoleController::class, 'index']);
 Route::get('subjects',[SubjectController::class, 'index']);
 Route::get('transits',[TransitController::class, 'index']);
 Route::get('trucks',[TruckController::class, 'index']);
-
-//QR Generator
-Route::get('QR/box', [BlackboxController::class, 'qrGenerator']);
 
 // CRUD 
 Route::resources([
