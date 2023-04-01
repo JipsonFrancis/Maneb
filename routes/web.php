@@ -21,6 +21,7 @@ use App\Models\Subject;
 use App\Models\Transit;
 use App\Models\Truck;
 use App\Models\User;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,22 +36,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Transit.transit');
-});
-
-Route::get('/login', function () {
-    return view('Login.login');
-
-});
-
-Route::get('/notification', function () {
-    return view('Notification.notification');
-
-});
-
-Route::get('/user', function () {
-    return view('User.users', ['users' => User::all()]);
-
+    return view('QR_Code.index');
+    //dd(Blackbox::first()->packs );
 });
 
 // Add middleware to the routes for security
@@ -64,6 +51,9 @@ Route::get('roles',[RoleController::class, 'index']);
 Route::get('subjects',[SubjectController::class, 'index']);
 Route::get('transits',[TransitController::class, 'index']);
 Route::get('trucks',[TruckController::class, 'index']);
+
+//QR Generator
+Route::get('QR/box', [BlackboxController::class, 'qrGenerator']);
 
 // CRUD 
 Route::resources([
