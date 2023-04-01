@@ -638,3 +638,17 @@ ul, li , a {
 .scroll-table {
     overflow: scroll;
 }
+
+
+/* user modal */
+.users-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    width: 600px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;;
+}
