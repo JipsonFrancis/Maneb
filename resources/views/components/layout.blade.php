@@ -28,7 +28,7 @@
 
     @section('footerScripts')
       
-      <script src="{{asset('boot/js/crud.js')}}"></script>
+      <!-- <script src="{{asset('boot/js/crud.js')}}"></script> -->
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

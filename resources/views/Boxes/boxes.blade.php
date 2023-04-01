@@ -3,8 +3,15 @@
 
 @section('title', 'MANEB')
 @section('content')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    ></script>
 <body>
+
     <div class="full-app-container">
         <x-nav />
 
@@ -32,8 +39,9 @@
                                 <td class="column5">{{$box->endLocation->name}}</td>
                                 <td class="column4">
                                     <div class="qr-picture-column">
-                                        <img src="{{asset('asset/images/qr-code.png')}}" alt="">
+                                        <img class="QR-code" src="{{asset('asset/images/qr-code.png')}}">
                                     </div>
+                                    <x-QR_Code />
                                 </td>
                                 <td class="column6">
                                     <div class="action-column-buttons">
@@ -68,11 +76,11 @@
 
         </div>
 
-        <button class="add-item-action">
+        <!-- <button class="add-item-action">
             <img src="{{asset('asset/images/plus (1).png')}}" alt="">
-        </button>
+        </button> -->
         
     </div>
 </body>
-
+<script src="{{asset('js/qrGen.js')}}"></script>
 @endsection
