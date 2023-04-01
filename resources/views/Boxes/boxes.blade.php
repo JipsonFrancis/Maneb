@@ -1,65 +1,78 @@
-@extends('component.layout')
+@extends('components.layout')
 @section('addCss')
 
-@section('title', 'Management')
+@section('title', 'MANEB')
 @section('content')
 
-<body style="height:100vh">
+<body>
+    <div class="full-app-container">
+        <x-nav />
 
-    <h2 style="float:right; background-color:#4D4DFF; margin-left:2px"> 
-        <form method="POST" action="{{ route('blackboxes.store') }}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="name" value="Likuni">
-            <input type="hidden" name="QR" value="/example.com/2/5">
-            <input type="hidden" name="transit_id" value="1">
-            <input type="hidden" name="initial_location" value="10">
-            <input type="hidden" name="current_location" value="15">
-            <input type="hidden" name="destination" value="25">
-            <button type="submit">Box</button>
-        </form>
-    </h2>
+        <div class="container-main-area-dashboad">
+            <x-search />
 
-    @foreach ( $boxes as $box)
-        <div style="border: 2px solid black; margin-top:2px;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFUr6lsDwuA7dtDvU8HzskKTPw3VL4xKkpa3xc1eGrOjXlYOvxwer-Oab0JTXUte1TOFs&usqp=CAU" alt="Avatar" style="width:10%">
-            <a style="float:right">Detail</a>
-            <div>
-                <h4><b>{{$box->name}}</b></h4>
-                <p>QR:{{$box->QR}}</p>
-                @if ( $box->transit)
-                    <p style="color:green">Transit:{{$box->transit->name}}</p>
-                @else
-                    <p style="color:red">Box is not moving</p>
-                @endif
-                <div>
-                    <ol>
-
-                        <li>
-                            <form method="POST" action="{{ route('blackboxes.update', $box->id) }}">
-                                <input type="hidden" name="_method" value="PUT">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit">update</button>
-                            </form>
-                        </li>
-
-                        <li>
-                            <form method="POST" action="{{ route('blackboxes.destroy', $box->id) }}">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit">delete</button>
-                            </form>
-                        </li>
-
-                    </ol>
-                </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr class="table-head">
+                            <th class="column1">Box Id</th>
+                            <th class="column2">Origin</th>
+                            <th class="column3">Location</th>
+                            <th class="column5">Destination</th>
+                            <th class="column4">QR Code</th>
+                            <th class="column6">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ( $boxes as $box)
+                            <tr>
+                                <td class="column1">{{$box->id}}</td>
+                                <td class="column2">{{$box->origin->name}}</td>
+                                <td class="column3">{{$box->current->name}}</td>
+                                <td class="column5">{{$box->endLocation->name}}</td>
+                                <td class="column4">
+                                    <div class="qr-picture-column">
+                                        <img src="{{asset('asset/images/qr-code.png')}}" alt="">
+                                    </div>
+                                </td>
+                                <td class="column6">
+                                    <div class="action-column-buttons">
+                                        <button><img src="{{asset('asset/images/edit.png')}}" alt=""></button>
+                                        <button><img src="{{asset('asset/images/delete.png')}}" alt=""></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                        <!-- <tr>
+                            <td class="column1">EG/02/02</td>
+                            <td class="column2">Zomba</td>
+                            <td class="column3">Machinga</td>
+                            <td class="column5">
+                                Lilongwe
+                            </td>
+                            <td class="column4">
+                                <div class="qr-picture-column">
+                                    <img src="../assets/images/qr-code.png" alt="">
+                                </div>
+                            </td>
+                            <td class="column6">
+                                <div class="action-column-buttons">
+                                    <button><img src="../assets/images/edit.png" alt=""></button>
+                                    <button><img src="../assets/images/delete.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
             </div>
-        </div>
-    @endforeach
 
-    @section('footerScripts')
-        @parent
-        <!-- <script src="{{asset('boot/js/AJAX.js')}}"></script> -->
-    @endsection
+        </div>
+
+        <button class="add-item-action">
+            <img src="{{asset('asset/images/plus (1).png')}}" alt="">
+        </button>
+        
+    </div>
 </body>
 
 @endsection

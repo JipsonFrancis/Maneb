@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>MANEB</title>
-</head>
+@extends('components.layout')
+@section('addCss')
+
+@section('title', 'MANEB')
+@section('content')
+
 <body>
     <div class="log-incontainer">
         <div class="company-logo-right">
             <div class="comp-logo">
-                <img src="../assets/images/maneB.jpg" alt="">
+                <img src="{{asset('asset/images/maneB.jpg')}}" alt="">
             </div>
         </div>
 
@@ -21,11 +18,11 @@
             <div class="log-in-textbox">
 
                 <div class="input-boxes">
-                    <img src="../assets/images/mail.png" alt="">
+                    <img src="{{asset('asset/images/mail.png')}}" alt="">
                     <input type="text" name="username" class="input-user" placeholder="Username">
                 </div>
                 <div class="input-boxes">
-                    <img src="../assets/images/padlock.png" alt="">
+                    <img src="{{asset('asset/images/padlock.png')}}" alt="">
                     <input type="password" name="password" class="input-user" placeholder="Password">
                 </div>
                 <p class="forget-password"><a href="#">forgot password?</a></p>
@@ -34,4 +31,5 @@
         </div>
     </div>
 </body>
-</html>
+
+@endsection

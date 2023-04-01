@@ -20,6 +20,13 @@ class Transit extends Model
         'destination',
     ];
 
+    //Helper function 
+
+    public function arrived():bool
+    {
+        return false;
+    }
+
     // Eloquent Relationships
     public function boxes(): HasMany
     {
@@ -51,5 +58,6 @@ class Transit extends Model
     {
         return $this->hasMany(Checkpoint::class);
     }
+
  
 }

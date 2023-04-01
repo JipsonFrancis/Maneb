@@ -35,8 +35,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
+    //return view('Transit.transit');
     dd(Blackbox::first()->packs );
+});
+
+Route::get('/login', function () {
+    return view('Login.login');
+
+});
+
+Route::get('/notification', function () {
+    return view('Notification.notification');
+
+});
+
+Route::get('/user', function () {
+    return view('User.users', ['users' => User::all()]);
+
 });
 
 // Add middleware to the routes for security

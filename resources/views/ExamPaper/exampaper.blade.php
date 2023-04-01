@@ -1,67 +1,74 @@
-@extends('component.layout')
+@extends('components.layout')
 @section('addCss')
 
-@section('title', 'Management')
+@section('title', 'Maneb')
 @section('content')
 
+<body>
+    <div class="full-app-container">
+        <x-nav />
 
-<body style="height:100vh">
+        <div class="container-main-area-dashboad">
+            <x-search />
 
-    <h2 style="float:right; background-color:#4D4DFF; margin-left:2px"> 
-    <form method="POST" action="{{ route('exams.store') }}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="name" value="Cement">
-            <input type="hidden" name="exam_id" value="2">
-            <input type="hidden" name="subject_id" value="1">
-            <input type="hidden" name="invigilator" value="25">
-            <input type="hidden" name="paper_number" value="2">
-            <input type="hidden" name="date" value="">
-            <button type="submit">Exam Paper</button>
-        </form>
-    </h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr class="table-head">
+                            <th class="column1">Subject Id</th>
+                            <th class="column2">Exam Id</th>
+                            <th class="column3">Paper name</th>
+                            <th class="column4">QR Code</th>
+                            <th class="column5">Date Added</th>
+                            <th class="column6">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ( $exampapers as $exampaper )
+                            <tr>
+                                <td class="column1">{{$exampaper->subject->id}}</td>
+                                <td class="column1">{{$exampaper->exam->id}}</td>
+                                <td class="column1">{{$exampaper->name}}</td>
+                                <td class="column4">
+                                    <div class="qr-picture-column">
+                                        <img src="{{asset('asset/images/qr-code.png')}}" alt="">
+                                    </div>
+                                </td>
+                                <td>{{$exampaper->created_at}}</td>
+                                <td class="column6">
+                                    <div class="action-column-buttons">
+                                        <button><img src="{{asset('asset/images/edit.png')}}" alt=""></button>
+                                        <button><img src="{{asset('asset/images/delete.png')}}" alt=""></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                        <!-- <tr>
+                            <td class="column1">EG/02/02</td>
+                            <td class="column2">EX/007</td>
+                            <td class="column3">English Literature</td>
+                            <td class="column4">
+                                <div class="qr-picture-column">
+                                    <img src="../assets/images/qr-code.png" alt="">
+                                </div>
+                            </td>
+                            <td class="column5">
+                                03/03/2023
+                            </td>
+                            <td class="column6">
+                                <div class="action-column-buttons">
+                                    <button><img src="../assets/images/edit.png" alt=""></button>
+                                    <button><img src="../assets/images/delete.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr> -->
 
-    @foreach ( $exampapers as $exampaper)
-        <div style="border: 2px solid black; margin-top:2px;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFUr6lsDwuA7dtDvU8HzskKTPw3VL4xKkpa3xc1eGrOjXlYOvxwer-Oab0JTXUte1TOFs&usqp=CAU" alt="Avatar" style="width:10%">
-            <a style="float:right">Detail</a>
-            <div>
-                <h4><b>{{$exampaper->name}}</b></h4>
-                <p>Paper:{{$exampaper->exam->name}}</p>
-                <p>Paper Number:{{$exampaper->paper_number}}</p>
-                <p>Subject:{{$exampaper->subject->name}}</p>
-                <p>invigilator:{{$exampaper->head->name}}</p>
-                <p>date:{{$exampaper->date}}</p>
-                <div>
-                    <ol>
-
-                        <li>
-                            <form method="POST" action="{{ route('exampapers.update', $exampaper->id) }}">
-                                <input type="hidden" name="_method" value="PUT">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit">update</button>
-                            </form>
-                        </li>
-
-                        <li>
-                            <form method="POST" action="{{ route('exampapers.destroy', $exampaper->id) }}">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit">delete</button>
-                            </form>
-                        </li>
-
-                    </ol>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
-    @endforeach
-
-
-
-    @section('footerScripts')
-        @parent
-        <!-- <script src="{{asset('boot/js/AJAX.js')}}"></script> -->
-    @endsection
+        
+    </div>
 </body>
 
 @endsection
