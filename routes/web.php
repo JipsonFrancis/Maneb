@@ -35,8 +35,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    //return view('Transit.transit');
-    dd(Blackbox::first()->packs );
+    return view('Transit.transit');
 });
 
 Route::get('/login', function () {
