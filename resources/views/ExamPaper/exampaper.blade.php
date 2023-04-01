@@ -3,6 +3,13 @@
 
 @section('title', 'Maneb')
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    ></script>
 
 <body>
     <div class="full-app-container">
@@ -31,8 +38,9 @@
                                 <td class="column1">{{$exampaper->name}}</td>
                                 <td class="column4">
                                     <div class="qr-picture-column">
-                                        <img src="{{asset('asset/images/qr-code.png')}}" alt="">
+                                        <img class="QR-code" src="{{asset('asset/images/qr-code.png')}}">
                                     </div>
+                                    <x-QR_Code />
                                 </td>
                                 <td>{{$exampaper->created_at}}</td>
                                 <td class="column6">
@@ -70,5 +78,5 @@
         
     </div>
 </body>
-
+<script src="{{asset('js/qrGen.js')}}"></script>
 @endsection

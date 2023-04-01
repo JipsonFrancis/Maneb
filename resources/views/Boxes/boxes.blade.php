@@ -76,9 +76,9 @@
 
         </div>
 
-        <!-- <button class="add-item-action">
+        <button class="add-item-action">
             <img src="{{asset('asset/images/plus (1).png')}}" alt="">
-        </button> -->
+        </button>
         
     </div>
 </body>
