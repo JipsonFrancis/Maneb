@@ -37,7 +37,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('QR_Code.index');
-    //dd(Blackbox::first()->packs );
 });
 
 // Add middleware to the routes for security
