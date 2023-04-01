@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Transit.transit');
+    return view('Transit.transit',['transits' => Transit::all()]);
 });
 
 Route::get('/notification', function () {
@@ -44,7 +44,7 @@ Route::get('/notification', function () {
 });
 
 Route::get('/user', function () {
-    return view('User.users');
+    return view('User.users', ['users' => User::all()]);
 });
 
 Route::get('/login', function () {
