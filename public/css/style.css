@@ -436,6 +436,36 @@ ul, li , a {
     padding-bottom: 20px;
 }
 
+.full-app-container {
+    position: relative;
+}
+
+
+.add-item-action {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #316A9E;
+    border-radius: 50%;
+    border: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.add-item-action:hover {
+    background: #618fb9;
+}
+
+.add-item-action img {
+    width: 30px;
+    position: absolute;
+}
+
 /* table css in pages */
 .table-container table {
     border-spacing: 1;
@@ -529,45 +559,269 @@ ul, li , a {
         margin: 0 5px;
     }
 
-    #QR-modal{
-        display: none;
-    }
-    .cookiesContent {
-        width: 150px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* background-color: #f3f3f3; */
-        color: #000;
-        text-align: center;
-        border-radius: 20px;
-        padding: 15px;
-    }
-    button.close {
-      width: 30px;
-      font-size: 20px;
-      color: #df5b5b;
-      align-self: flex-end;
-      background-color: transparent;
-      border: none;
-      margin-bottom: 10px;
-    }
-    img {
-      width: 82px;
-      margin-bottom: 15px;
-    }
-    p {
-      margin-bottom: 40px;
-      font-size: 18px;
-    }
-    button.accept {
-      background-color: #ed6755;
-      border: none;
-      border-radius: 5px;
-      width: 200px;
-      padding: 14px;
-      font-size: 16px;
-      color: white;
-      box-shadow: 0px 6px 18px -5px rgba(237, 103, 85, 1);
+    .column-role p{
+        background-color: #316A9E;
+        color: #ffffff;
+        padding: 5px 0px;
+        border-radius: 4px;
     }
 
+/* the dashboard page */
+/* the details on dashboard page */
+.quick-dashboard-stats {
+    width: 100%;
+    height: 100vh;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.top-quick-stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.stat-box {
+    width: calc(25% - 10px);
+    border: 1px solid #0000000e;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.stat-box img {
+    width: 20px;
+}
+
+.words-quick-stats {
+    font-size: 0.6rem;
+    font-weight: 600;
+    opacity: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #1d3b41;
+}
+
+.stats-of-items {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.small-stats {
+    font-size: 0.6rem;
+    color: #1d3b41;
+}
+
+.list-of-trucks {
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.table-left {
+    text-align: left;
+    font-size: 0.7rem;
+    color: #1d3b41;
+}
+
+.home-table {
+    border: 1px solid #0000000e;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table-rows td {
+    text-align: left;
+}
+
+.scroll-table {
+    overflow: scroll;
+}
+
+
+/* user modal */
+.modal-users-overlay {
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(#0a6880, transparent);
+    transition: all 300ms ease-in-out;
+}
+
+.modal-users-show {
+    visibility: visible;
+}
+
+.users-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    width: 500px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;;
+}
+
+.top-section-modal {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.top-section-modal img {
+    width: 30px;
+    cursor: pointer;
+}
+
+.textboxcontainer input, .textboxcontainer select {
+    outline: none;
+    border: 2px solid #316A9E;
+    background-color: #FFFFFF;
+    padding: 10px 10px 10px 10px;
+    border-radius: 7px;
+    width: 100%;
+    font-size: 0.8rem;
+    margin: 10px 0;
+}
+
+.textboxcontainer label {
+    font-weight: 400;
+    font-size: 0.9rem;
+    opacity: 50%;
+}
+
+/* reports page in the files */
+
+.report-boxes-top {
+    display: flex;
+}
+
+.report-box {
+    width: calc(25% - 10px);
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.report-top {
+    font-size: 0.8rem;
+    opacity: 50%;
+}
+
+.report-words-top-img {
+    margin-bottom: 6px;
+}
+
+.of {
+    font-size: 0.8rem;
+}
+
+.report-img img {
+    width: 20px;
+    opacity: 70%;
+}
+
+.report-number {
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+
+.middle-sector-report {
+    margin: 20px 10px 20px 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+.main-box-reports {
+    width: 75%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 15px;
+    margin-right: 15px;
+}
+
+.report-table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    overflow: hidden;
+    width: 97%;
+    position: relative;
+    margin: 15px 10px;
+}
+
+.rp-table-head {
+    height: 25px;
+    text-align: left;
+    border-bottom: none;
+    background-color: #b9b9b91d;
+    border-radius: 10px;
+    margin: 10px 10px;
+}
+
+.table-th {
+    padding: 0 15px;
+    font-weight: 400;
+    font-size: 0.7rem;
+    opacity: 70%;
+}
+
+.table-trr {
+    height: 20px;
+    margin: 0;
+    border-bottom: 1px solid #b9b9b951;
+}
+
+.table-tr {
+    padding: 0 15px;
+    font-weight: 400;
+    font-size: 0.7rem;
+}
+
+.table-trr:last-child {
+    border-bottom: 0px;
+}
+
+.progress-report {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    width: 24%;
+    padding: 15px;
+    margin-left: 5px;
+}
+
+.div-circle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.circle {
+    margin-top: 15px;
+    border: 15px solid #3caf49be;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.percent {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}

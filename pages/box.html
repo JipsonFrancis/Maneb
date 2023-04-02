@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>MANEB</title>
+</head>
+<body>
+    <div class="full-app-container">
+        <div class="navigation-dashboard">
+            <div class="img-logo">
+                <img src="../assets/images/maneB.jpg" alt="">
+                <p>MANEB</p>
+            </div>
+            <div class="nav-collection">
+                <div class="nav-right">
+                    <ul>
+                        <li><a href="./dashboard.html" class="active-nav"><img class="icon-link" src="../assets/images/dashboard.png" alt=""> Dashboard</a></li>
+                        <li><a href="./tracking.html"><img class="icon-link" src="../assets/images/location.png" alt=""> Tracking</a></li>
+                        <li><a href="./box.html"><img class="icon-link" src="../assets/images/box.png" alt=""> Box</a></li>
+                        <li><a href="./papers.html"><img class="icon-link" src="../assets/images/paper.png" alt=""> Papers</a></li>
+                        <li><a href="./notification.html"><img class="icon-link" src="../assets/images/notification.png" alt=""> Notifications</a></li>
+                        <li><a href="./users.html"><img class="icon-link" src="../assets/images/group.png" alt=""> Users</a></li>
+                        <li><a href="./reports.html"><img class="icon-link" src="../assets/images/report.png" alt=""> Reports</a></li>
+                    </ul>
+                </div>
+    
+                <div class="nav-bottom">
+                    <ul>
+                        <li><a href="#"><img class="icon-link" src="../assets/images/user.png" alt=""> Admin</a></li>
+                        <li><a href="#"><img class="icon-link" src="../assets/images/logout.png" alt=""> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-main-area-dashboad">
+            <div class="search-container-main">
+                <div class="search-box-txt">
+                    <img src="../assets/images/search.png" alt="">
+                    <input type="text" name="Search..." class="track-search" placeholder="Search...">
+                </div>
+                <div class="search-btn">
+                    <img src="../assets/images/filter.png" alt="">
+                    <input type="button" value="">
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr class="table-head">
+                            <th class="column1">Box Id</th>
+                            <th class="column2">Initial location</th>
+                            <th class="column3">Current Location</th>
+                            <th class="column5">Destination</th>
+                            <th class="column4">QR Code</th>
+                            <th class="column6">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="column1">EG/02/02</td>
+                            <td class="column2">Zomba</td>
+                            <td class="column3">Machinga</td>
+                            <td class="column5">
+                                Lilongwe
+                            </td>
+                            <td class="column4">
+                                <div class="qr-picture-column">
+                                    <img src="../assets/images/qr-code.png" alt="">
+                                </div>
+                            </td>
+                            <td class="column6">
+                                <div class="action-column-buttons">
+                                    <button><img src="../assets/images/edit.png" alt=""></button>
+                                    <button><img src="../assets/images/delete.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="column1">EG/02/02</td>
+                            <td class="column2">Zomba</td>
+                            <td class="column3">Machinga</td>
+                            <td class="column5">
+                                Lilongwe
+                            </td>
+                            <td class="column4">
+                                <div class="qr-picture-column">
+                                    <img src="../assets/images/qr-code.png" alt="">
+                                </div>
+                            </td>
+                            <td class="column6">
+                                <div class="action-column-buttons">
+                                    <button><img src="../assets/images/edit.png" alt=""></button>
+                                    <button><img src="../assets/images/delete.png" alt=""></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <button class="add-item-action box-modal">
+            <img src="../assets/images/plus (1).png" alt="">
+        </button>
+
+        <div class="modal-users-overlay overlay-box">
+            <div class="users-modal">
+                <div class="top-section-modal">
+                    <p class="add-user">Add Box</p>
+                    <img class="close-box-modal" src="../assets/images/close.png" alt="">
+                </div>
+                <div class="textboxcontainer">
+                    <label for="name">Box ID</label>
+                    <input type="text" name="" id="" placeholder="firstname">
+                </div>
+                <div class="textboxcontainer">
+                    <label for="name">Initial Location</label>
+                    <input type="text" name="" id="" placeholder="LastName">
+                </div>
+                <div class="textboxcontainer">
+                    <label for="name">Destination</label>
+                    <input type="text" name="" id="" placeholder="email">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="./box.js"></script>
+</body>
+</html>
