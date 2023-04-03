@@ -4,9 +4,6 @@
 @section('title', 'Maneb')
 @section('content')
 
-
-
-@endsection
 <body>
     <div class="full-app-container">
         <x-nav />
@@ -57,7 +54,7 @@
                 <div class="main-details-display">
                     <div class="vehicle-details">
                         <div class="icon">
-                            <img src="{{asset('asset/images/delivery-van.png')}}">
+                            <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
                         </div>
                         <div class="vehicle-items">
                             <div class="items-list">
@@ -76,7 +73,7 @@
                     </div>
                     <div class="paper-details driver-details-hidden">
                         <div class="icon">
-                            <img src="{{asset('asset/images/paper.png')}}" alt="">
+                            <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
                         </div>
                         <div class="paper-items">
                             <div class="items-list">
@@ -95,7 +92,7 @@
                     </div>
                     <div class="driver-details driver-details-hidden">
                         <div class="icon">
-                            <img src="{{asset('asset/images/paper.png')}}" alt="">
+                            <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
                         </div>
                         <div class="driver-items">
                             <div class="items-list">
@@ -113,3 +110,5 @@
         </div>
     </div>
 </body>
+
+@endsection

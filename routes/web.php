@@ -39,6 +39,14 @@ Route::get('/', function () {
     return view('Transit.transit',['transits' => Transit::all()]);
 });
 
+Route::get('/dashboard', function () {
+    return view('Dashboard', ['transits' => Transit::all()]);
+});
+
+Route::get('/report', function () {
+    return view('Reports.report');
+});
+
 Route::get('/notification', function () {
     return view('Notification.notification');
 });
