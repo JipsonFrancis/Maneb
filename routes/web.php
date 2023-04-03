@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Transit.transit',['transits' => Transit::all()]);
+    return view('Dashboard', ['transits' => Transit::all()]);
 });
 
 Route::get('/dashboard', function () {
