@@ -15,6 +15,7 @@ class Center extends Model
         'name',
         'invigilator',
         'type',
+        'iframe',
         'longitude',
         'latitude',
     ];

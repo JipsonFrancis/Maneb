@@ -22,6 +22,7 @@ use App\Models\Transit;
 use App\Models\Truck;
 use App\Models\User;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +58,23 @@ Route::get('/user', function () {
 
 Route::get('/login', function () {
     return view('Login.login');
+});
+
+Route::get('/test', function () {
+    $t = Transit::findOrFail(1);
+    $packets = collect();
+
+    foreach($t->boxes as $box )
+    {
+        foreach($box->packs as $packet)
+        {
+            $packets->push([
+                'packet' => $packet,
+            ]);
+        }
+    }
+
+    dd($packets);
 });
 
 // Add middleware to the routes for security

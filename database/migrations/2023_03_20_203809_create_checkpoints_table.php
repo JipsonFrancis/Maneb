@@ -23,11 +23,11 @@ return new class extends Migration
             ;
 
 // possible area of errors
-            // $table->unsignedBigInteger('location');
-            // $table->foreign('location')
-            //     ->references('id')
-            //     ->on('center')
-            // ;
+            $table->unsignedBigInteger('location');
+            $table->foreign('location')
+                ->references('id')
+                ->on('centers')
+            ;
 
             $table->unsignedBigInteger('transit_id');
             $table->foreign('transit_id')

@@ -15,8 +15,8 @@ class Checkpoint extends Model
         'name',
         'invigilator',
         'transit_id',
-        'box'
-        //location
+        'box',
+        'location'
     ];
 
 // Eloquent Relationships
@@ -27,7 +27,7 @@ class Checkpoint extends Model
 
     public function center(): BelongsTo 
     {
-        return $this->belongsTo(Center::class,'id', 'location');
+        return $this->belongsTo(Center::class,'location', 'id');
     }
 
     public function transit(): BelongsTo

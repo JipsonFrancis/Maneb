@@ -26,6 +26,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
+        $iframe = array([
+            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50246.99893013921!2d33.78838122860532!3d-13.963420690925872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19202d2848b3eb31%3A0x3ead09117ba69a26!2sKamuzu%20Institute%20for%20Sports!5e0!3m2!1sen!2smw!4v1680627247018!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>', 
+            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50246.99893013921!2d33.78838122860532!3d-13.963420690925872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19202c66bd562ec7%3A0xdec9d9077a8884c2!2sKumbali%20Country%20Lodge!5e0!3m2!1sen!2smw!4v1680629522327!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>', 
+            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29237.656644538605!2d33.796478509555946!3d-13.95699452713972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19202ccb00703ced%3A0x6d90e1e64728b536!2sGolden%20Peacock%20Hotel!5e0!3m2!1sen!2smw!4v1680629549129!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29237.656644538605!2d33.796478509555946!3d-13.95699452713972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d50b7aa6ff73%3A0xc61edc128f383cc9!2sClimb%20Malawi!5e0!3m2!1sen!2smw!4v1680629578655!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>', 
+            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14203.094903219308!2d33.7991561302162!3d-13.949917966412558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19202dcf83f08ba3%3A0x6715bffb941386c7!2sAdziwa%20Christian%20Schools!5e0!3m2!1sen!2smw!4v1680629622681!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62570.721517318554!2d33.94392805478588!3d-11.43147397000442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x191d3039d0f8ae75%3A0xf0f00e912b55adf2!2sMzuzu%20University!5e0!3m2!1sen!2smw!4v1680629702394!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62570.721517318554!2d33.94392805478588!3d-11.43147397000442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x191d31bb4d70aa27%3A0x77d8305adef93583!2sMzuzu%20International%20Academy!5e0!3m2!1sen!2smw!4v1680629739359!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>']);
+
 //Examination
         for($i = 0; $i < 4; $i++)
         {
@@ -111,6 +120,14 @@ class DatabaseSeeder extends Seeder
                     'name' => fake()->name(),
                     'invigilator' => $user->id,
                     'type' => fake()->randomElement(['distribution', 'school']),
+                    'iframe' => fake()->randomElement([
+                        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50246.99893013921!2d33.78838122860532!3d-13.963420690925872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19202d2848b3eb31%3A0x3ead09117ba69a26!2sKamuzu%20Institute%20for%20Sports!5e0!3m2!1sen!2smw!4v1680627247018!5m2!1sen!2smw', 
+                        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50246.99893013921!2d33.78838122860532!3d-13.963420690925872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19202c66bd562ec7%3A0xdec9d9077a8884c2!2sKumbali%20Country%20Lodge!5e0!3m2!1sen!2smw!4v1680629522327!5m2!1sen!2smw', 
+                        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29237.656644538605!2d33.796478509555946!3d-13.95699452713972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19202ccb00703ced%3A0x6d90e1e64728b536!2sGolden%20Peacock%20Hotel!5e0!3m2!1sen!2smw!4v1680629549129!5m2!1sen!2smw',
+                        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29237.656644538605!2d33.796478509555946!3d-13.95699452713972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d50b7aa6ff73%3A0xc61edc128f383cc9!2sClimb%20Malawi!5e0!3m2!1sen!2smw!4v1680629578655!5m2!1sen!2smw', 
+                        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14203.094903219308!2d33.7991561302162!3d-13.949917966412558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19202dcf83f08ba3%3A0x6715bffb941386c7!2sAdziwa%20Christian%20Schools!5e0!3m2!1sen!2smw!4v1680629622681!5m2!1sen!2smw',
+                        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62570.721517318554!2d33.94392805478588!3d-11.43147397000442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x191d3039d0f8ae75%3A0xf0f00e912b55adf2!2sMzuzu%20University!5e0!3m2!1sen!2smw!4v1680629702394!5m2!1sen!2smw',
+                        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62570.721517318554!2d33.94392805478588!3d-11.43147397000442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x191d31bb4d70aa27%3A0x77d8305adef93583!2sMzuzu%20International%20Academy!5e0!3m2!1sen!2smw!4v1680629739359!5m2!1sen!2smw']),
                     'longitude' => fake()->randomFloat(),
                     'latitude' => fake()->randomFloat(),
                 ]);
@@ -291,28 +308,28 @@ class DatabaseSeeder extends Seeder
             'transit_id' => $transit_1->id,
             'invigilator' => $user->id,
             'box' => $box_1->id,
-            //'location' => $center->id
+            'location' => $center->id
         ]);
         $point_2 = Checkpoint::create([
             'name' => fake()->unique()->country(),
             'transit_id' => $transit_2->id,
             'invigilator' => $user->id,
             'box' => $box_2->id,
-            //'location' => $center->id
+            'location' => $center->id
         ]);
         $point_3 = Checkpoint::create([
             'name' => fake()->unique()->country(),
             'transit_id' => $transit_3->id,
             'invigilator' => $user->id,
             'box' => $box_4->id,
-            //'location' => $center->id
+            'location' => $center->id
         ]);
         $point_4 = Checkpoint::create([
             'name' => fake()->unique()->country(),
             'transit_id' => $transit_1->id,
             'invigilator' => $user->id,
             'box' => $box_3->id,
-            //'location' => $center->id
+            'location' => $center->id
         ]);
 
     }

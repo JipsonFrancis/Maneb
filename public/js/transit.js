@@ -1,5 +1,4 @@
 window.addEventListener('load', () => {
-    
     const transit = Array.prototype.slice.call(document.getElementsByClassName("tracked-car"));
     const ui = uiController();
 
@@ -15,12 +14,12 @@ window.addEventListener('load', () => {
                     uiAppendController(ui.vehicle, JSON.parse(value).Model, "Model");
                     uiAppendController(ui.vehicle, JSON.parse(value).name, "Name");
 
-                    console.log(JSON.parse(value));
+                    uiRemoveController(ui.location);
+console.log(JSON.parse(value).center.iframe);
+                    setGoogle(ui.location, JSON.parse(value).center.iframe);
                 },
                 (error) => {
                     console.log(error);
-                    alert("Input a text");
-                    elText.focus();
                 }
             );
         });
@@ -28,6 +27,36 @@ window.addEventListener('load', () => {
 
 });
 
+function setGoogle(entity, data)
+{
+    const frame = document.createElement('iframe');
+    const att = document.createAttribute('src');
+    const att2 = document.createAttribute('width');
+    const att3 = document.createAttribute('height');
+    const att4 = document.createAttribute('style');
+    const att5 = document.createAttribute('allowfullscreen');
+    const att6 = document.createAttribute('loading');
+    const att7 = document.createAttribute('referrerpolicy');
+
+    att.value = data;
+    att2.value = "600";
+    att3.value = "450";
+    att3.value = "450";
+    att4.value = "border:0;";
+    att5.value = "";
+    att6.value = "lazy";
+    att7.value = "no-referrer-when-downgrade";
+
+    frame.setAttributeNode(att);
+    frame.setAttributeNode(att2);
+    frame.setAttributeNode(att3);
+    frame.setAttributeNode(att4);
+    frame.setAttributeNode(att5);
+    frame.setAttributeNode(att6);
+    frame.setAttributeNode(att7);
+
+    entity.appendChild(frame);
+}
 function makeCode (data) {
     let qrPromise = new Promise((qrResolve, qrReject) => {
         let req = new XMLHttpRequest();
@@ -36,7 +65,7 @@ function makeCode (data) {
             if (req.status == 200){
                 qrResolve(req.response);
             }else{
-                qrReject('failed to load QR');
+                qrReject('failed to load Truck info');
             }
         };
         req.send();
@@ -51,6 +80,7 @@ function uiController()
         "vehicle"   : window.document.getElementById("vehicle"),
         "paper"     : window.document.getElementById("paper"),
         "driver"    : window.document.getElementById("driver"),
+        "location"  : window.document.getElementById("location")
     };
 }
 

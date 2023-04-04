@@ -41,7 +41,7 @@
         </div>
 
         <div class="map-section">
-            <div class="map-section-map">
+            <div id="location" class="map-section-map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.737321312045!2d33.74013261416684!3d-13.97423489020379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d3f84285d089%3A0x58cc2a46db548781!2sNxtGen%20Labs!5e0!3m2!1sen!2smw!4v1679989200453!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 

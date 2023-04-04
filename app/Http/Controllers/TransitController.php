@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Checkpoint;
 use App\Models\Transit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransitController extends Controller
 {
@@ -47,6 +49,22 @@ class TransitController extends Controller
     {
         //create collection
         $transit = Transit::findOrFail($id);
+
+        // get the lasted checkpoint for this transit 
+        $checkpoint_id = DB::table("checkpoints")->get()->where("transit_id", 1)->sortBy("created_at")->last()->id;
+        $checkpoint = Checkpoint::findOrFail($checkpoint_id);
+        $packets = collect();
+
+        foreach($transit->boxes as $box )
+        {
+            foreach($box->packs as $packet)
+            {
+                $packets->push([
+                    'packet' => $packet,
+                ]);
+            }
+        }
+
         $collection = collect([
             'transit_id' => $transit->id,
             'licence' => $transit->truck->licence,
@@ -56,7 +74,8 @@ class TransitController extends Controller
             'driver' =>  $transit->driver->name,
             'driver_email' => $transit->driver->email,
             'boxes' => $transit->boxes,
-            'packet' => $transit->boxes->first->packs
+            'packet' => $packets,
+            'center' => $checkpoint->center,
         ]);
         return json_encode($collection);
     }
