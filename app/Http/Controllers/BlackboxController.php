@@ -105,6 +105,7 @@ class BlackboxController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        dd("need to create a page to edit the variables or javascript which is the best way my guy");
     }
 
     /**

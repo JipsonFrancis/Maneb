@@ -45,8 +45,16 @@
                                 </td>
                                 <td class="column6">
                                     <div class="action-column-buttons">
-                                        <button><img src="{{asset('asset/images/edit.png')}}" alt=""></button>
-                                        <button><img src="{{asset('asset/images/delete.png')}}" alt=""></button>
+                                        <form method="POST" action="{{ route('blackboxes.update', $box->id) }}">
+                                            <input type="hidden" name="_method" value="PUT">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button><img src="{{asset('asset/images/edit.png')}}" alt=""></button>
+                                        </form>
+                                        <form action="{{ route('blackboxes.update', $box->id) }}" method="post">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button type="submit"><img src="{{asset('asset/images/delete.png')}}" alt=""></button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
@@ -76,11 +84,35 @@
 
         </div>
 
-        <button class="add-item-action">
+        <button class="add-item-action box-modal">
             <img src="{{asset('asset/images/plus (1).png')}}" alt="">
         </button>
+
+        <div class="modal-users-overlay overlay-box">
+            <div class="top-section-modal">
+                <p class="add-user">Add Box</p>
+                <img class="close-box-modal" src="{{asset('asset/images/close.png')}}" alt="">
+            </div>
+            <form class="users-modal" method="POST" action="{{ route('blackboxes.store') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="textboxcontainer">
+                    <label for="name">Box ID</label>
+                    <input type="text" name="name" id="name" placeholder="name">
+                </div>
+                <div class="textboxcontainer">
+                    <label for="name">Origin</label>
+                    <input type="text" name="initial_location" id="origin" placeholder="Origin">
+                </div>
+                <div class="textboxcontainer">
+                    <label for="name">Destination</label>
+                    <input type="text" name="destination" id="destination" placeholder="Destination">
+                </div>
+                <button type="submit">Box</button>
+            </form>
+        </div>
         
     </div>
 </body>
 <script src="{{asset('js/qrGen.js')}}"></script>
+<script src="{{asset('js/box.js')}}"></script>
 @endsection
