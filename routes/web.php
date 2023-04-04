@@ -61,8 +61,6 @@ Route::get('/login', function () {
 });
 
 Route::get('/test', function () {
-
-
     dd(Checkpoint::first()->center);
 });
 
@@ -80,6 +78,7 @@ Route::get('trucks',[TruckController::class, 'index']);
 
 //QR Generator
 Route::get('QR/box', [BlackboxController::class, 'qrGenerator']);
+
 
 // CRUD 
 Route::resources([

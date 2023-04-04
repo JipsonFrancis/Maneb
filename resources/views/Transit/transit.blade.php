@@ -15,15 +15,25 @@
 
                 <div class="cars-tracked-inner">
                     <!-- FILTER OUT TRANSITS THAT ARE NOT IN TRANSIT -->
-                    @foreach ( $transits as $transit )
+                    @if ($Transit)
                         <div class="tracked-car tracked-car-actived">
-                            <p class="plate-number">{{$transit->truck->licence}}</p>
-                            <p class="plate-number">{{$transit->driver->name}}</p>
+                            <p class="plate-number">{{$Transit['licence']}}</p>
+                            <p class="plate-number">{{$Transit['driver']}}</p>
                             <p class="status-car">in transit</p>
-                            <input type="hidden" name="transit" value="{{$transit->id}}">
-                            <input type="hidden" name="truck" value="{{$transit->truck->id}}">
+                            <input type="hidden" name="transit" value="{{$Transit['transit_id']}}">
+                            <!-- <input type="hidden" name="truck" value="{{$Transit}}"> -->
                         </div>
-                    @endforeach
+                    @else
+                        @foreach ( $transits as $transit )
+                            <div class="tracked-car tracked-car-actived">
+                                <p class="plate-number">{{$transit->truck->licence}}</p>
+                                <p class="plate-number">{{$transit->driver->name}}</p>
+                                <p class="status-car">in transit</p>
+                                <input type="hidden" name="transit" value="{{$transit->id}}">
+                                <input type="hidden" name="truck" value="{{$transit->truck->id}}">
+                            </div>
+                        @endforeach
+                    @endif
                     <!-- <div class="tracked-car tracked-car-actived">
                         <p class="plate-number">BW2324</p>
                         <p class="status-car">in transit</p>
@@ -42,7 +52,11 @@
 
         <div class="map-section">
             <div id="location" class="map-section-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.737321312045!2d33.74013261416684!3d-13.97423489020379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d3f84285d089%3A0x58cc2a46db548781!2sNxtGen%20Labs!5e0!3m2!1sen!2smw!4v1679989200453!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                @if ($Transit)
+                    <iframe src="{{$Transit['center']['iframe']}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                @else
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.737321312045!2d33.74013261416684!3d-13.97423489020379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d3f84285d089%3A0x58cc2a46db548781!2sNxtGen%20Labs!5e0!3m2!1sen!2smw!4v1679989200453!5m2!1sen!2smw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                @endif
             </div>
 
             <div class="details-section">
@@ -60,6 +74,23 @@
                             <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
                         </div>
                         <div class="vehicle-items" id="vehicle">
+                            @if ($Transit)
+                                <div class="items-list">
+                                    <p>Registration:</p>
+                                    <p class="item-below">{{$Transit['licence']}}</p>
+                                </div>
+                              
+                                <div class="items-list">
+                                    <p>Model:</p>
+                                    <p class="item-below">{{$Transit['Model']}}</p>
+                                </div>
+                            
+                                <div class="items-list">
+                                    <p>Name:</p>
+                                    <p class="item-below">{{$Transit['name']}}</p>
+                                </div>
+                             
+                            @endif
                             <!-- <div class="items-list">
                                 <p>Registration:</p>
                                 <p class="item-below">BW2324</p>

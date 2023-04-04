@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blackbox;
+use App\Models\Checkpoint;
+use App\Models\Transit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlackboxController extends Controller
 {
@@ -44,9 +47,48 @@ class BlackboxController extends Controller
     /**
      * Display the specified resource.
      */
+    // public function show(string $id)
+    // {
+    //     //
+    //     $box = Blackbox::findOrFail($id);
+    //     return view('Transit.transit', ['transits' => Transit::all(), 'Transit' => $box->transit]);
+    // }
+
     public function show(string $id)
     {
-        //
+        $box = Blackbox::findOrFail($id);
+        //create collection
+        $transit = $box->transit;
+
+        // get the lasted checkpoint for this transit 
+        $checkpoint_id = DB::table("checkpoints")->get()->where("transit_id", $id)->sortBy("created_at")->last()->id;
+        $checkpoint = Checkpoint::findOrFail($checkpoint_id);
+        $packets = collect();
+
+        foreach($transit->boxes as $box )
+        {
+            foreach($box->packs as $packet)
+            {
+                $packets->push([
+                    'packet' => $packet,
+                ]);
+            }
+        }
+
+        $collection = collect([
+            'transit_id' => $transit->id,
+            'licence' => $transit->truck->licence,
+            'Model' => "car x",
+            'name' => $transit->name,
+            'driver_id' => $transit->driver->id,
+            'driver' =>  $transit->driver->name,
+            'driver_email' => $transit->driver->email,
+            'boxes' => $transit->boxes,
+            'packet' => $packets,
+            'center' => $checkpoint->center,
+        ]);
+        //dd($collection);
+        return view('Transit.transit', ['transits' => Transit::all(), 'Transit' => $collection]);
     }
 
     /**
@@ -81,7 +123,7 @@ class BlackboxController extends Controller
     public function qrGenerator(Request $req)
     {
         $box = Blackbox::first();
-        $qr = 'http://127.0.0.1:8000/box/'.$box->id;
+        $qr = 'http://127.0.0.1:8000/blackboxes/'.$box->id;
         return $qr;
     }
 }

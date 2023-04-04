@@ -14,7 +14,7 @@ class TransitController extends Controller
      */
     public function index()
     {
-        return view('Transit.transit', ['transits' => Transit::all()]);
+        return view('Transit.transit', ['transits' => Transit::all(), 'Transit' => null]);
     }
 
     /**
