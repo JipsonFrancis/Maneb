@@ -61,20 +61,9 @@ Route::get('/login', function () {
 });
 
 Route::get('/test', function () {
-    $t = Transit::findOrFail(1);
-    $packets = collect();
 
-    foreach($t->boxes as $box )
-    {
-        foreach($box->packs as $packet)
-        {
-            $packets->push([
-                'packet' => $packet,
-            ]);
-        }
-    }
 
-    dd($packets);
+    dd(Checkpoint::first()->center);
 });
 
 // Add middleware to the routes for security

@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
                     uiAppendController(ui.vehicle, JSON.parse(value).name, "Name");
 
                     uiRemoveController(ui.location);
-console.log(JSON.parse(value).center.iframe);
+console.log(JSON.parse(value).center);
                     setGoogle(ui.location, JSON.parse(value).center.iframe);
                 },
                 (error) => {
