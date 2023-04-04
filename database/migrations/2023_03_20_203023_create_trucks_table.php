@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('trucks', function (Blueprint $table) {
             $table->id();
             $table->string('licence');
+            //$table->string('model');
+            //$table->string('name');
             //$table->enum('occupied',['1','0'])->default(0);
             $table->timestamps();
         });

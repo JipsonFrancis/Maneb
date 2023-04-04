@@ -14,11 +14,14 @@
                 <x-search />
 
                 <div class="cars-tracked-inner">
+                    <!-- FILTER OUT TRANSITS THAT ARE NOT IN TRANSIT -->
                     @foreach ( $transits as $transit )
                         <div class="tracked-car tracked-car-actived">
                             <p class="plate-number">{{$transit->truck->licence}}</p>
                             <p class="plate-number">{{$transit->driver->name}}</p>
                             <p class="status-car">in transit</p>
+                            <input type="hidden" name="transit" value="{{$transit->id}}">
+                            <input type="hidden" name="truck" value="{{$transit->truck->id}}">
                         </div>
                     @endforeach
                     <!-- <div class="tracked-car tracked-car-actived">
@@ -56,26 +59,31 @@
                         <div class="icon">
                             <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
                         </div>
-                        <div class="vehicle-items">
-                            <div class="items-list">
+                        <div class="vehicle-items" id="vehicle">
+                            <!-- <div class="items-list">
                                 <p>Registration:</p>
                                 <p class="item-below">BW2324</p>
                             </div>
+                             1st child  
                             <div class="items-list">
                                 <p>Model:</p>
                                 <p class="item-below">Toyota</p>
                             </div>
+                            2nd child 
                             <div class="items-list">
                                 <p>Name:</p>
                                 <p class="item-below">Dyna</p>
                             </div>
+                            3rd child  -->
+                             
                         </div>
                     </div>
+
                     <div class="paper-details driver-details-hidden">
                         <div class="icon">
                             <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
                         </div>
-                        <div class="paper-items">
+                        <div class="paper-items" id="paper">
                             <div class="items-list">
                                 <p>Paper Name:</p>
                                 <p class="item-below">English</p>
@@ -90,11 +98,12 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="driver-details driver-details-hidden">
                         <div class="icon">
                             <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
                         </div>
-                        <div class="driver-items">
+                        <div class="driver-items" id="driver">
                             <div class="items-list">
                                 <p>Name:</p>
                                 <p class="item-below">Jane Doe</p>
@@ -105,10 +114,11 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </body>
-
+<script src="{{asset('js/transit.js')}}"></script>
 @endsection

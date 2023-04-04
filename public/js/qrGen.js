@@ -63,12 +63,4 @@ window.addEventListener('load', function(e){
 
     makeCode(qrcode);
 
-    // $("#text").on("blur", function () {
-    //     makeCode(qrcode);
-    // }).on("keydown", function (e) {
-    //     if (e.keyCode == 13) {
-    //         makeCode(qrcode);
-    //     }
-    // });
-
 });

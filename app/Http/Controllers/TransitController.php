@@ -45,7 +45,20 @@ class TransitController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //create collection
+        $transit = Transit::findOrFail($id);
+        $collection = collect([
+            'transit_id' => $transit->id,
+            'licence' => $transit->truck->licence,
+            'Model' => "car x",
+            'name' => $transit->name,
+            'driver_id' => $transit->driver->id,
+            'driver' =>  $transit->driver->name,
+            'driver_email' => $transit->driver->email,
+            'boxes' => $transit->boxes,
+            'packet' => $transit->boxes->first->packs
+        ]);
+        return json_encode($collection);
     }
 
     /**
