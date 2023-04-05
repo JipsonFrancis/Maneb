@@ -40,8 +40,8 @@
                                 <td class="column4">
                                     <div class="qr-picture-column">
                                         <img class="QR-code" src="{{asset('asset/images/qr-code.png')}}">
-                                    </div>
-                                    <x-QR_Code />
+                                        <x-QR_Code />
+                                    </div>  
                                 </td>
                                 <td class="column6">
                                     <div class="action-column-buttons">
@@ -107,7 +107,7 @@
                     <label for="name">Destination</label>
                     <input type="text" name="destination" id="destination" placeholder="Destination">
                 </div>
-                <button type="submit">Box</button>
+                <button type="submit" class="modal-btn-pop">Box</button>
             </form>
         </div>
         

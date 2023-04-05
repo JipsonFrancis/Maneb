@@ -547,6 +547,12 @@ ul, li , a {
         width: 40px;
     }
 
+    .action-column-buttons {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
     .action-column-buttons button img {
         width: 20px;
     }
@@ -656,6 +662,17 @@ ul, li , a {
 .modal-users-show {
     visibility: visible;
 }
+.modal-btn-pop {
+    outline: none;
+    border: none;
+    background-color: #618fb9;
+    color: #ffffff;
+    padding: 8px 70px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
 
 .users-modal {
     position: absolute;
@@ -666,7 +683,7 @@ ul, li , a {
     width: 500px;
     margin: 10px;
     padding: 20px;
-    border-radius: 10px;;
+    border-radius: 10px;
 }
 
 .top-section-modal {
@@ -849,10 +866,10 @@ button.close {
   border: none;
   margin-bottom: 10px;
 }
-img {
+/* img {
   width: 82px;
   margin-bottom: 15px;
-}
+} */
 p {
   font-size: 0.7rem;
 }
