@@ -63,17 +63,17 @@
                 <p class="main-p">Main details</p>
 
                 <div class="details-nav">
-                    <input type="button" value="Vehicle" class="nav-btn nav-btn-activated">
-                    <input type="button" value="Paper Information" class="nav-btn">
-                    <input type="button" value="Driver" class="nav-btn">
+                    <input type="button" data-id="vehicle-details" value="Vehicle" class="nav-btn btn-tab nav-btn-activated">
+                    <input type="button" data-id="paper-details" value="Paper Information" class="nav-btn btn-tab">
+                    <input type="button" data-id="driver-details" value="Driver" class="nav-btn btn-tab">
                 </div>
 
                 <div class="main-details-display">
-                    <div class="vehicle-details">
+                    <div class="vehicle-details tabs-map  driver-details-hidden" id="vehicle-details">
                         <div class="icon">
                             <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
                         </div>
-                        <div class="vehicle-items" id="vehicle">
+                        <div class="vehicle-items vehicle" id="vehicle">
                             @if ($Transit)
                                 <div class="items-list">
                                     <p>Registration:</p>
@@ -90,29 +90,13 @@
                                     <p class="item-below">{{$Transit['name']}}</p>
                                 </div>
                              
-                            @endif
-                            <!-- <div class="items-list">
-                                <p>Registration:</p>
-                                <p class="item-below">BW2324</p>
-                            </div>
-                             1st child  
-                            <div class="items-list">
-                                <p>Model:</p>
-                                <p class="item-below">Toyota</p>
-                            </div>
-                            2nd child 
-                            <div class="items-list">
-                                <p>Name:</p>
-                                <p class="item-below">Dyna</p>
-                            </div>
-                            3rd child  -->
-                             
+                            @endif    
                         </div>
                     </div>
 
-                    <div class="paper-details driver-details-hidden">
+                    <div class="paper-details tabs-map" id="paper-details">
                         <div class="icon">
-                            <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
+                            <img src="{{asset('asset/images/paper.png')}}" alt="">
                         </div>
                         <div class="paper-items" id="paper">
                             <div class="items-list">
@@ -130,9 +114,9 @@
                         </div>
                     </div>
 
-                    <div class="driver-details driver-details-hidden">
+                    <div class="driver-details tabs-map" id="driver-details">
                         <div class="icon">
-                            <img src="{{asset('asset/images/delivery-van.png')}}" alt="">
+                            <img src="{{asset('asset/images/user.png')}}" alt="">
                         </div>
                         <div class="driver-items" id="driver">
                             <div class="items-list">

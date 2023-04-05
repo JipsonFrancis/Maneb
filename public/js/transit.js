@@ -113,3 +113,30 @@ function uiRemoveController(element){
         element.removeChild(element.firstChild);
       }
 }
+
+const tabedTransitDetails = ()=> {
+    const vehicleButton = document.querySelectorAll('.btn-tab')
+    const allTabs = document.querySelectorAll('.tabs-map')
+    const btnTab = document.querySelector('.details-nav')
+
+    btnTab.addEventListener("click", function (e) {
+        let id = e.target.dataset.id
+
+        if (id) {
+            vehicleButton.forEach(function (btn) {
+                btn.classList.remove('nav-btn-activated')
+                e.target.classList.add('nav-btn-activated')
+            })
+
+
+            allTabs.forEach(function (tab) {
+                tab.classList.remove('driver-details-hidden')
+            })
+        
+            let newitem = document.getElementById(id)
+            newitem.classList.add('driver-details-hidden')
+        }
+    })
+}
+
+tabedTransitDetails()
