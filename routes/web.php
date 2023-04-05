@@ -10,6 +10,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TransitController;
 use App\Http\Controllers\TruckController;
+use App\Http\Controllers\User as ControllersUser;
 use App\Models\Blackbox;
 use App\Models\Center;
 use App\Models\Checkpoint;
@@ -52,10 +53,6 @@ Route::get('/notification', function () {
     return view('Notification.notification');
 });
 
-Route::get('/user', function () {
-    return view('User.users', ['users' => User::all()]);
-});
-
 Route::get('/login', function () {
     return view('Login.login');
 });
@@ -75,6 +72,7 @@ Route::get('roles',[RoleController::class, 'index']);
 Route::get('subjects',[SubjectController::class, 'index']);
 Route::get('transits',[TransitController::class, 'index']);
 Route::get('trucks',[TruckController::class, 'index']);
+Route::get('users',[ControllersUser::class, 'index']);
 
 //QR Generator
 Route::get('QR/box', [BlackboxController::class, 'qrGenerator']);
@@ -91,5 +89,6 @@ Route::resources([
     'roles' => RoleController::class,
     'subjects' => SubjectController::class,
     'transits' => TransitController::class,
-    'trucks' => TruckController::class
+    'trucks' => TruckController::class,
+    'users' => ControllersUser::class
 ]);

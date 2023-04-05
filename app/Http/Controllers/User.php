@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User as ModelsUser;
 use Illuminate\Http\Request;
 
 class User extends Controller
@@ -12,6 +13,7 @@ class User extends Controller
     public function index()
     {
         //
+        return view('User.users', ['users' => ModelsUser::all()]);
     }
 
     /**
@@ -28,6 +30,14 @@ class User extends Controller
     public function store(Request $request)
     {
         //
+                // create a box and store it in the db
+                $user = ModelsUser::create([
+                    'name' => $request->name,
+                    'role' => $request->role,
+                    'email' => $request->email
+                ]);
+        
+                return back()->with('success', $user->name.' user has been created.');
     }
 
     /**
@@ -52,6 +62,7 @@ class User extends Controller
     public function update(Request $request, string $id)
     {
         //
+        dd("need to create a page to edit the variables or javascript which is the best way my guy");
     }
 
     /**
@@ -60,5 +71,11 @@ class User extends Controller
     public function destroy(string $id)
     {
         //
+                //delete a box
+                $user = ModelsUser::findOrFail((int)$id);
+
+                $user->delete();
+        
+                return redirect()->back()->with('success', $user->name.' has been deleted');
     }
 }

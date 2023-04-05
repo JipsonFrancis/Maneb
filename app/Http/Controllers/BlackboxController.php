@@ -118,7 +118,7 @@ class BlackboxController extends Controller
 
         $box->delete();
 
-        return redirect()->back()->with('success', $box->name.' from been deleted');
+        return redirect()->back()->with('success', $box->name.' has been deleted');
     }
 
     public function qrGenerator(Request $req)
