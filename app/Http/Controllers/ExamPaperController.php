@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Checkpoint;
 use App\Models\ExamPaper;
+use App\Models\Transit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ExamPaperController extends Controller
 {
@@ -46,7 +49,39 @@ class ExamPaperController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $paper = ExamPaper::findOrFail($id);
+        //create collection
+        $transit = $paper->pack->box->transit;
+
+        // get the lasted checkpoint for this transit 
+        $checkpoint_id = DB::table("checkpoints")->get()->where("transit_id", $transit->id)->sortBy("created_at")->last()->id;
+        $checkpoint = Checkpoint::findOrFail($checkpoint_id);
+        $packets = collect();
+
+        foreach($transit->boxes as $box )
+        {
+            foreach($box->packs as $packet)
+            {
+                $packets->push([
+                    'packet' => $packet,
+                ]);
+            }
+        }
+
+        $collection = collect([
+            'transit_id' => $transit->id,
+            'licence' => $transit->truck->licence,
+            'Model' => "car x",
+            'name' => $transit->name,
+            'driver_id' => $transit->driver->id,
+            'driver' =>  $transit->driver->name,
+            'driver_email' => $transit->driver->email,
+            'boxes' => $transit->boxes,
+            'packet' => $packets,
+            'center' => $checkpoint->center,
+        ]);
+        //dd($collection);
+        return view('Transit.transit', ['transits' => Transit::all(), 'Transit' => $collection]);
     }
 
     /**
@@ -63,6 +98,7 @@ class ExamPaperController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        dd("need to create a page to edit the variables or javascript which is the best way my guy");
     }
 
     /**
@@ -76,5 +112,12 @@ class ExamPaperController extends Controller
         $exampaper->delete();
 
         return redirect()->back()->with('success', $exampaper->name.' from been deleted');
+    }
+
+    public function qrGenerator(Request $req)
+    {
+        $paper = ExamPaper::first();
+        $qr = 'http://127.0.0.1:8000/exampapers/'.$paper->id;
+        return $qr;
     }
 }

@@ -45,8 +45,16 @@
                                 <td>{{$exampaper->created_at}}</td>
                                 <td class="column6">
                                     <div class="action-column-buttons">
-                                        <button><img src="{{asset('asset/images/edit.png')}}" alt=""></button>
-                                        <button><img src="{{asset('asset/images/delete.png')}}" alt=""></button>
+                                        <form method="POST" action="{{ route('exampapers.update', $exampaper->id) }}">
+                                            <input type="hidden" name="_method" value="PUT">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button><img src="{{asset('asset/images/edit.png')}}" alt=""></button>
+                                        </form>
+                                        <form method="POST" action="{{ route('exampapers.destroy', $exampaper->id) }}">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button type="submit"><img src="{{asset('asset/images/delete.png')}}" alt=""></button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
@@ -70,13 +78,61 @@
                                 </div>
                             </td>
                         </tr> -->
-
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <button class="add-item-action paper-modal">
+            <img src="{{asset('asset/images/plus (1).png')}}">
+        </button>
+
+        <div class="modal-users-overlay overlay-paper">
+            <div class="users-modal">
+                <div class="top-section-modal">
+                    <p class="add-user">Add Paper</p>
+                    <img class="close-paper-modal" src="{{asset('asset/images/plus (1).png')}}" alt="">
+                </div>
+                <form method="POST" action="{{ route('exams.store') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <div class="textboxcontainer">
+                        <label for="name">Subject name</label>
+                        <input type="text" name="name" id="" placeholder="name">
+                    </div>
+
+                    <div class="textboxcontainer">
+                        <label for="name">Exam ID</label>
+                        <input type="text" name="exam_id" id="" placeholder="exam_id">
+                    </div>
+
+                    <div class="textboxcontainer">
+                        <label for="name">Subject ID</label>
+                        <input type="text" name="subject_id" id="" placeholder="subject_id">
+                    </div>
+
+                    <div class="textboxcontainer">
+                        <label for="name">Paper #</label>
+                        <input type="number" name="paper_number" id="paper_number" placeholder="paper_number">
+                    </div>
+
+                    <div class="textboxcontainer">
+                        <label for="name">invigilator</label>
+                        <input type="text" name="invigilator" id="invigilator" placeholder="invigilator">
+                    </div>
+
+                    <div class="textboxcontainer">
+                        <label for="name">date</label>
+                        <input type="date" name="date" id="date" placeholder="date">
+                    </div>
+
+                    <button type="submit">Exam Paper</button>
+                </form>
+
             </div>
         </div>
         
     </div>
 </body>
-<script src="{{asset('js/qrGen.js')}}"></script>
+<script src="{{asset('js/paper.js')}}"></script>
 @endsection

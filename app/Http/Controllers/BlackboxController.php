@@ -61,7 +61,7 @@ class BlackboxController extends Controller
         $transit = $box->transit;
 
         // get the lasted checkpoint for this transit 
-        $checkpoint_id = DB::table("checkpoints")->get()->where("transit_id", $id)->sortBy("created_at")->last()->id;
+        $checkpoint_id = DB::table("checkpoints")->get()->where("transit_id", $transit->id)->sortBy("created_at")->last()->id;
         $checkpoint = Checkpoint::findOrFail($checkpoint_id);
         $packets = collect();
 
