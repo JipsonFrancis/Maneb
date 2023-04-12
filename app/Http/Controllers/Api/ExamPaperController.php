@@ -44,9 +44,13 @@ class ExamPaperController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ExamPaper $examPaper)
+    public function show($examPaper)
     {
-        //
+        $paper = ExamPaper::findOrFail($examPaper);
+        
+        return response()->json([
+            'paper' => $paper
+        ]);
     }
 
     /**
@@ -60,8 +64,10 @@ class ExamPaperController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreExamPaperRequest $request, ExamPaper $paper)
+    public function update(StoreExamPaperRequest $request, $paper_id)
     {
+        $paper = ExamPaper::findOrFail($paper_id);
+
         $paper->update($request->all());
     
         return response()->json([
@@ -73,8 +79,10 @@ class ExamPaperController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ExamPaper $paper)
+    public function destroy($paper_id)
     {
+        $paper = ExamPaper::findOrFail($paper_id);
+
         $paper->delete();
     
         return response()->json([

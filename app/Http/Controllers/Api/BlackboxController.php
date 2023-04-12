@@ -44,9 +44,14 @@ class BlackboxController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Blackbox $blackbox)
+    public function show($blackbox)
     {
         //
+        $box = Blackbox::findOrFail($blackbox);
+        
+        return response()->json([
+            'box' => $box
+        ]);
     }
 
     /**
@@ -60,8 +65,10 @@ class BlackboxController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreBlackboxRequest $request, Blackbox $box)
+    public function update(StoreBlackboxRequest $request, $box_id)
     {
+        $box = Blackbox::findOrFail($box_id);
+        
         $box->update($request->all());
     
         return response()->json([
@@ -73,8 +80,11 @@ class BlackboxController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blackbox $box)
+
+    public function destroy($box_id)
     {
+        $box = Blackbox::findOrFail($box_id);
+
         $box->delete();
     
         return response()->json([

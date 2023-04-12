@@ -45,9 +45,14 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($user_id)
     {
         //
+        $user = User::findOrFail($user_id);
+
+        return response()->json([
+            'user' => $user
+        ]);
     }
 
     /**
@@ -61,8 +66,10 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreUserRequest $request, User $user)
+    public function update(StoreUserRequest $request, $user_id)
     {
+        $user = User::findOrFail($user_id);
+
         $user->update($request->all());
     
         return response()->json([
@@ -74,8 +81,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($user_id)
     {
+        $user = User::findOrFail($user_id);
+
         $user->delete();
     
         return response()->json([
